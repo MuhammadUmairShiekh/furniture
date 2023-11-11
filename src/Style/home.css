@@ -25,7 +25,7 @@
     background-color: var(--primary-color);
     border-radius: 5px;
     color: white;
-    width: 120px;
+    width: 180px;
     border: none;
     outline: none;
     transition: 0.7s all;
@@ -40,4 +40,32 @@
     text-transform: uppercase;
     font-weight: 700;
     color: var(--primary-color);
+}
+
+.timer_count{
+    background-color: #192a56;
+    height: 23rem;
+    /* width: 70rem; */
+    border-radius: 5px;
+
+}
+
+.timer_count img{
+    width: 80% !important;
+    height: 83% !important ;
+    object-fit: contain;
+}
+
+.store_btn{
+    background-color: white;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    text-align: center;
+    width: 10rem;
+    height: 4rem;
+}
+
+.store_btn:hover{
+    background-color: #4b7bec;
+    color: white;
 }

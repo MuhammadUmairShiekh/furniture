@@ -5,16 +5,21 @@
     align-items: center;
     line-height: 40px;
 }
-
+.product_item{
+    cursor: pointer;
+}
 .product_card-bottom{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.product_info h3{
+.product_info a h3{
     font-weight: 700;
     color: var(--primary-color);
     margin-top: 15px;
+}
+.product_info a h3:hover{
+    color: inherit;
 }
 .product_name{
     font-size: 1.3rem;

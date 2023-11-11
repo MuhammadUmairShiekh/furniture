@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductCard from './ProductCard'
-const ProductList = () => {
+const ProductList = ({ data }) => {
+    // console.log(data)
     return (
         <>
             <div className='cardList'>
@@ -8,6 +9,13 @@ const ProductList = () => {
                 <ProductCard />
                 <ProductCard />
                 <ProductCard />
+             {/* {
+                data?.map(item => {
+                    <ProductCard item={item} />
+                })
+             }      
+                 */}
+                
             </div>
         </>
 
