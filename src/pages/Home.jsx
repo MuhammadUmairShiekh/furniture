@@ -30,7 +30,7 @@ const Home = () => {
     <>
       <Helmet>
         <section className='hero_section'>
-          <Container >
+          <Container>
             <Row>
               <Col lg="6" md="6">
                 <div className='hero_content'>
@@ -81,7 +81,7 @@ const Home = () => {
         <section className="timer_count">
           <Container>
             <Row>
-              <Col lg='6' md='6'>
+              <Col lg='6' md='12' className='count_down' >
                 <div className="clock_top">
                   <h4 className='text-white fs-7 mb-2'>Limited Time Offers</h4>
                   <h3 className='text-white fs-5 mb-3'>Quality ArmChair</h3>
@@ -92,7 +92,7 @@ const Home = () => {
                   Visit Store</NavLink>
                 </motion.button>
               </Col>
-              <Col className='text-end' lg='6' md='6'>
+              <Col className='text-end  counter_img' lg='6' md='12'>
                 <img src={countTimer} alt="" />
               </Col>
             </Row>

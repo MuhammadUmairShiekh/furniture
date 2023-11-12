@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import '../../src/Style/Clock.css'
+
 
 const Clock = () => {
   const [days, setDays] = useState()

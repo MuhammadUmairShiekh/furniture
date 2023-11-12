@@ -46,5 +46,13 @@
     color: white;
     border-radius: 50%;
     margin-right: 2rem;
+    }
 
-}
+@media only screen and (max-width: 768px) {
+   .product_card-bottom span i{
+        font-size: 1rem;
+
+    }
+
+
+    }
