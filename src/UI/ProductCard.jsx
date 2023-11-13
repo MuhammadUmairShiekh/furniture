@@ -1,12 +1,12 @@
 import React from 'react'
 import productImg from '../../src/images/arm-chair-03.jpg'
 import '../../src/Style/productCard.css'
-import { Col } from 'reactstrap'
+import { Col  } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { cartActions } from '../Config/ReduxStore/CardStore'
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 
 
 const ProductCard = ({ item }) => {
@@ -18,8 +18,10 @@ const ProductCard = ({ item }) => {
             // productName: item.productName,
             // image: item.imgUrl,
             // price: item.price,            
-        }))
+        })
+        )
         toast.success("add the product in cart")
+        
     }
 
     return (

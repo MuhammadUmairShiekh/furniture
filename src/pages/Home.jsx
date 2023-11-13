@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Helmet from '../Conponents/Helmet/Helmet'
 import { NavLink } from 'react-router-dom'
-import { Container, Row, Col } from 'reactstrap'
+// import { Container, Row, Col } from 'reactstrap'
+import { Container, Row ,Col  } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 import HeroImg from '../../src/images/hero-img.png'
 import countTimer from '../../src/images/counter-timer-img.png'
@@ -30,7 +31,7 @@ const Home = () => {
     <>
       <Helmet>
         <section className='hero_section'>
-          <Container>
+          <Container fluid='xxl' >
             <Row>
               <Col lg="6" md="6">
                 <div className='hero_content'>

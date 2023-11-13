@@ -1,5 +1,6 @@
 import React from 'react'
-import { Container, Row, Col } from 'reactstrap'
+import { Container, Row ,Col  } from 'react-bootstrap'
+
 import './Service.css'
 import serviceData from '../data/serviceData'
 const Service = () => {

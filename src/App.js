@@ -8,16 +8,22 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
+
       <Provider store={Store} >
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          closeOnClick
-          // pauseOnFocusLoss
-          theme="dark"
-        />
-        {/* Same as */}
-        <ToastContainer />
+        <div className='toasty'>
+          <ToastContainer
+            theme="dark"
+            position="top-right"
+            // hideProgressBar
+            // newestOnTop
+            // rtl
+            autoClose={3000}
+            closeOnClick
+            pauseOnFocusLoss={false}
+
+          />
+        </div>
+
         <Layout />
       </Provider>
     </>
