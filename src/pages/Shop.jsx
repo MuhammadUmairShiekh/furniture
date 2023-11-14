@@ -1,8 +1,21 @@
 import React from 'react'
+import Footer from '../Conponents/Footer/Footer'
+import Commomsection from './Commomsection'
+import Helmet from '../Conponents/Helmet/Helmet'
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+    <>
+      <Helmet>
+
+      <Commomsection />
+
+      </Helmet>
+
+      <Footer />
+
+    </>
+
   )
 }
 

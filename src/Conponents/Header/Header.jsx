@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'reactstrap'
 import logo from '../../images/eco-logo.png'
 import User from '../../images/user-icon.png'
 import { motion } from 'framer-motion'
+import Home from '../../pages/Home'
 
 
 const Header = () => {
@@ -28,10 +29,10 @@ const Header = () => {
   const stickyHeader = () => {
     window.addEventListener('scroll', () => {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        headerRef.current.classList.add("sticky_header");
+        headerRef.current.classList.add("sticky_Nav");
       }
       else {
-        headerRef.current.classList.remove("sticky_header");
+        headerRef.current.classList.remove("sticky_Nav");
       }
     })
   };
@@ -85,8 +86,9 @@ const Header = () => {
               </div>
             </div>
           </Row>
-          <Outlet />
         </Container>
+        <Outlet />
+
       </header>
 
     </>

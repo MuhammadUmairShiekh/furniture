@@ -17,7 +17,7 @@ const Footer = () => {
             <div className='logo'>
               {/* <motion.img whileTap={{ scale: 1.2 }} src={logo} alt="" /> */}
               <div>
-                <h5 className='text-black fs-6'>DREAM-FURNITURE  <br /> Since 1999</h5>
+                <h5 className='text-white fs-6'>DREAM-FURNITURE  <br /> Since 1999</h5>
               </div>
             </div>
             <p className='footer_text mt-4'>

@@ -12,6 +12,7 @@ function App() {
       <Provider store={Store} >
         <div className='toasty'>
           <ToastContainer
+            style={{ fontSize: "14px", zIndex: "1" }}
             theme="dark"
             position="top-right"
             // hideProgressBar

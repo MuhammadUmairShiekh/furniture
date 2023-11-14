@@ -7,7 +7,7 @@
   --card-bg-02: #d6e5fb;
   --card-bg-03: #ceebe9;
   --card-bg-04: #e2f2b2;
-  --primary-color: #273c75;
+  --primary-color: #030d27;
   --hero-bg: #d6e5fb;
   --heading-fontSize: 2rem;
   --small-text-color: #999;
@@ -24,12 +24,13 @@
   
 
 }
-.Toastify{  
-   z-index: -1 !important;
-   background-color: red !important;
+.Toastify {
+  position: absolute;
+  z-index: 999999;
 }
 body {
   font-family: "Montserrat", sans-serif;
+  
 }
 
 h1,
