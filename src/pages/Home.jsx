@@ -25,7 +25,7 @@ const Home = () => {
     const filterBestProduct = products.filter((item) => item.category === "sofa")
     setTrending(filterTrendingProduct)
     setBestProduct(filterBestProduct)
-    console.log(setBestProduct)
+    console.log(setBestProduct(filterBestProduct))
   }, [])
   return (
     <>
