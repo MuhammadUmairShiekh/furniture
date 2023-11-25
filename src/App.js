@@ -4,6 +4,7 @@ import Store from '././Config/ReduxStore/Store'
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import  Router  from '../src/Config/router';
 
 function App() {
   return (
@@ -14,18 +15,19 @@ function App() {
           <ToastContainer
             style={{ fontSize: "14px", zIndex: "1" }}
             theme="dark"
+            
             position="top-right"
             // hideProgressBar
             // newestOnTop
-            // rtl
+            // rtl={true}
             autoClose={3000}
             closeOnClick
-            pauseOnFocusLoss={false}
+            pauseOnFocusLoss={true}
 
           />
         </div>
 
-        <Layout />
+        <Router />
       </Provider>
     </>
   );

@@ -1,57 +1,57 @@
-import React  from 'react'
+import React from 'react'
 import Footer from '../Conponents/Footer/Footer'
 import Commomsection from './Commomsection'
 import Helmet from '../Conponents/Helmet/Helmet'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../Style/Shop.css'
 import products from '../data/products'
-import { useEffect, useState } from 'react'
-import ProductList from '../UI/ProductList'
+import {  useState } from 'react'
+import ProductList from '../MUI/ProductList'
 
 const Shop = () => {
-const [productList , setProductList  ] = useState(products)
+  const [productList, setProductList] = useState(products)
 
-const handleFilter = (e) => {
-  const filterValue = e.target.value;
-  if(filterValue === 'sofa'){
-    const filterProducts = products.filter(
-      (item) => item.category === 'sofa'
-    );
-    setProductList(filterProducts)
-    console.log(setProductList(filterProducts))
+  const handleFilter = (e) => {
+    const filterValue = e.target.value;
+    if (filterValue === 'sofa') {
+      const filterProducts = products.filter(
+        (item) => item.category === 'sofa'
+      );
+      setProductList(filterProducts)
+      console.log(filterProducts)
+    }
+    if (filterValue === 'chair') {
+      const filterProducts = products.filter(
+        (item) => item.category === 'chair'
+      );
+      setProductList(filterProducts)
+      console.log(filterProducts)
+    }
+    if (filterValue === 'table') {
+      const filterProducts = products.filter(
+        (item) => item.category === 'table'
+      );
+      setProductList(filterProducts)
+      console.log(filterProducts)
+    }
+    if (filterValue === 'bed') {
+      const filterProducts = products.filter(
+        (item) => item.category === 'bed'
+      );
+      setProductList(filterProducts)
+      console.log(filterProducts)
+    }
   }
-  if(filterValue === 'Chair'){
-    const filterProducts = products.filter(
-      (item) => item.category === 'Chair'
-    );
-    setProductList(filterProducts)
-    console.log(setProductList(filterProducts))
-  }
-  if(filterValue === 'table'){
-    const filterProducts = products.filter(
-      (item) => item.category === 'table'
-    );
-    setProductList(filterProducts)
-    console.log(setProductList(filterProducts))
-  }
-  if(filterValue === 'bed'){
-    const filterProducts = products.filter(
-      (item) => item.category === 'bed'
-    );
-    setProductList(filterProducts)
-    console.log(setProductList(filterProducts))
-  }
-}
 
-const handleSearch = e => {
-  const searchItem = e.target.value
-  const searchProducts = products.filter(item => item.productName.toLowerCase().includes(searchItem.toLowerCase()))
-  setProductList(searchProducts)
-}
-
+  const handleSearch = e => {
+    const searchItem = e.target.value
+    const searchProducts = products.filter(item => item.productName.toLowerCase().includes(searchItem.toLowerCase()))
+    setProductList(searchProducts)
+  }
+  
   return (
     <>
-      <Helmet>
+      <Helmet title={"Dream Furniture  Shop"}>
         <Commomsection title={"Products"} />
         <section>
           <Container>
@@ -79,7 +79,7 @@ const handleSearch = e => {
               </Col>
               <Col lg='6' md='6'>
                 <div className="search_box">
-                  <input type="text" placeholder='Search Here......' onChange={handleSearch}  />
+                  <input type="text" placeholder='Search Here......' onChange={handleSearch} />
                   <span><i class="ri-search-line"></i></span>
                 </div>
               </Col>
@@ -90,13 +90,14 @@ const handleSearch = e => {
           <Container>
             <Row>
               <Col>
-              {
-                productList.length === 0 ? <h1>Product Not Found</h1>
-                : <ProductList data={productList}/>
-              }
+                {
+                  productList.length === 0 ? <h1 className='text-center fs-4' >Product Not Found! ☹</h1>
+                    : <ProductList data={productList} />
+                }
               </Col>
             </Row>
           </Container>
+
         </section>
       </Helmet>
 

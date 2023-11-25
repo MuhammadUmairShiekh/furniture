@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Helmet from '../Conponents/Helmet/Helmet'
 import { NavLink } from 'react-router-dom'
 // import { Container, Row, Col } from 'reactstrap'
-import { Container, Row ,Col  } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 import HeroImg from '../../src/images/hero-img.png'
 import countTimer from '../../src/images/counter-timer-img.png'
 import '../Style/home.css'
 import Service from '../service/Service'
-import ProductList from '../UI/ProductList'
+import ProductList from '../MUI/ProductList'
 import products from '../data/products'
-import Clock from '../UI/Clock'
+import Clock from '../MUI/Clock'
 import Footer from '../Conponents/Footer/Footer'
 
 
@@ -21,17 +21,20 @@ const Home = () => {
   const [bestProduct, setBestProduct] = useState([])
   const year = new Date().getFullYear()
   useEffect(() => {
-    const filterTrendingProduct = products.filter((item) => item.category === "chair")
-    const filterBestProduct = products.filter((item) => item.category === "sofa")
+    const filterTrendingProduct = products.filter((item) => item.category === "chair");
+    const filterBestProduct = products.filter((item) => item.category === "sofa");
     setTrending(filterTrendingProduct)
     setBestProduct(filterBestProduct)
-    console.log(setBestProduct(filterBestProduct))
+    // console.log(filterBestProduct)
+    // console.warn(setTrending)
+
   }, [])
+  // console.log(products)
   return (
     <>
-      <Helmet>
+      <Helmet title={"Dream Furniture Home"} >
         <section className='hero_section'>
-          <Container fluid='xxl' >
+          <Container >
             <Row>
               <Col lg="6" md="6">
                 <div className='hero_content'>
@@ -66,6 +69,7 @@ const Home = () => {
           </Container>
         </section>
         <ProductList data={trending} />
+        {/* <ProductList data={console.log(trending[2])} /> */}
 
         <section className="best_Sale">
 
@@ -74,7 +78,7 @@ const Home = () => {
               <Col lg="12" className='text-center'>
                 <h2 className='section_title'>Best Sales</h2>
               </Col>
-              <ProductList data={bestProduct} />
+              {/* <ProductList data={bestProduct} /> */}
             </Row>
           </Container>
         </section>
@@ -106,8 +110,6 @@ const Home = () => {
                 <h2 className='section_title'>New Arrivals</h2>
               </Col>
               <ProductList data={bestProduct} />
-              <ProductList data={bestProduct} />
-
             </Row>
           </Container>
         </section>

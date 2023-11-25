@@ -5,10 +5,11 @@ import { Container, Row, Col } from 'reactstrap'
 import logo from '../../images/eco-logo.png'
 import User from '../../images/user-icon.png'
 import { motion } from 'framer-motion'
-import Home from '../../pages/Home'
+import { useSelector } from 'react-redux'
 
 
 const Header = () => {
+  const totalQuantity = useSelector(state => state.cart.totalQuantity)
   const nav_link = [
     {
       path: '/',
@@ -75,7 +76,8 @@ const Header = () => {
                 </span>
                 <span className='card_icon'>
                   < i class="ri-shopping-bag-line"></i>
-                  <span className='badge'>1</span>
+                  
+                  <span className='badge'>{totalQuantity}</span>
 
                 </span>
                 <span>< motion.img whileTap={{ scale: 1.3 }} src={User} alt="user" /></span>

@@ -27,6 +27,7 @@
 .Toastify {
   position: absolute;
   z-index: 999999;
+  color: #2454cf !important;
 }
 body {
   font-family: "Montserrat", sans-serif;

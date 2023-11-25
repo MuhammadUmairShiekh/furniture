@@ -8,7 +8,7 @@ const Layout = () => {
     <>
     {/* <Header /> */}
     <div className='w-100'>
-        <Router />
+        {/* <Router /> */}
     </div>
     {/* <Footer /> */}
     </>
