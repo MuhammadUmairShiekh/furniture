@@ -52,7 +52,7 @@ const Shop = () => {
   return (
     <>
       <Helmet title={"Dream Furniture  Shop"}>
-        <Commomsection title={"Products"} />
+        <Commomsection  />
         <section>
           <Container>
             <Row>

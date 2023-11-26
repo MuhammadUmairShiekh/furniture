@@ -18,7 +18,7 @@ function ProductCard({ item }) {
             id: item.id,
             productName: item.productName,
             image: item.imgUrl,
-            price: item.price,            
+            price: item.price,
         })
         )
         toast.success("add the product in cart")
@@ -31,15 +31,15 @@ function ProductCard({ item }) {
                 <div className='product_item'>
 
                     <div className='product_img'>
-                        <motion.img whileHover={{ scale: 0.9 }} src={item.imgUrl} alt="" />
+                        <NavLink to={`/Shop/${item.id}`}><motion.img whileHover={{ scale: 1.1 }} src={item.imgUrl} alt="" /></NavLink>
                     </div>
-                    <div className='p-2 product_info'>
+                    <div className='p-4 product_info'>
                         <NavLink to={`/Shop/${item.id}`}><h3 className='product_name'>{item.productName}</h3></NavLink>
                         <p className='product_P'>{item.category}</p>
 
                     </div>
 
-                    <div className='product_card-bottom p-2' >
+                    <div className='product_card-bottom p-4' >
                         <span className='price'>{item.price}</span>
                         < motion.span whileTap={{ scale: 1.3 }} onClick={addCart}  > <i class="ri-add-fill"></i></motion.span>
                     </div>

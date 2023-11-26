@@ -21,7 +21,7 @@
 
 }
 .product_info a h3:hover{
-    color: inherit;
+    color: initial;
 }
 .product_name{
     font-size: 1.3rem;

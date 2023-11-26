@@ -42,6 +42,7 @@ const products = [
 
     reviews: [
       {
+        ratingName: "Umair",
         rating: 4.7,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       },
@@ -61,6 +62,7 @@ const products = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
     reviews: [
       {
+        ratingName: "Muhammad" ,
         rating: 4.8,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       },
@@ -83,7 +85,9 @@ const products = [
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
     reviews: [
-      {
+      { 
+        
+        ratingName: "Shiekh",
         rating: 4.6,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       },
@@ -106,6 +110,7 @@ const products = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio nostrum accusantium iste, voluptas cumque provident! Consequatur officiis animi rem tempore voluptate cumque hic similique aperiam ut consectetur distinctio repudiandae quia quam quos, quas illo, iusto, necessitatibus odio veniam exercitationem quis voluptatibus debitis laboriosam! Esse debitis obcaecati blanditiis at impedit quibusdam!",
     reviews: [
       {
+        ratingName: "Ali",
         rating: 4.8,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       },
@@ -132,6 +137,8 @@ const products = [
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       },
       {
+        
+        ratingName: "Samra",
         rating: 4.9,
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
       },
