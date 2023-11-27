@@ -78,7 +78,7 @@ const Home = () => {
               <Col lg="12" className='text-center'>
                 <h2 className='section_title'>Best Sales</h2>
               </Col>
-              {/* <ProductList data={bestProduct} /> */}
+              <ProductList data={bestProduct} />
             </Row>
           </Container>
         </section>

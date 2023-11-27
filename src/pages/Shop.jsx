@@ -18,28 +18,28 @@ const Shop = () => {
         (item) => item.category === 'sofa'
       );
       setProductList(filterProducts)
-      console.log(filterProducts)
+      // console.log(filterProducts)
     }
     if (filterValue === 'chair') {
       const filterProducts = products.filter(
         (item) => item.category === 'chair'
       );
       setProductList(filterProducts)
-      console.log(filterProducts)
+      // console.log(filterProducts)
     }
     if (filterValue === 'table') {
       const filterProducts = products.filter(
         (item) => item.category === 'table'
       );
       setProductList(filterProducts)
-      console.log(filterProducts)
+      // console.log(filterProducts)
     }
     if (filterValue === 'bed') {
       const filterProducts = products.filter(
         (item) => item.category === 'bed'
       );
       setProductList(filterProducts)
-      console.log(filterProducts)
+      // console.log(filterProducts)
     }
   }
 
@@ -56,19 +56,19 @@ const Shop = () => {
         <section>
           <Container>
             <Row>
-              <Col lg='3' md='3'>
+              <Col lg='3' md='6'>
                 <div className="filter_widget">
                   <select onChange={handleFilter} >
                     <option >Filter By Category</option>
                     <option value='sofa'>Sofa</option>
                     <option value='chair'>Chair</option>
-                    <option value='tabel' >Tabel</option>
+                    <option value='table' >Tabel</option>
                     <option value='bed' >Bed</option>
                   </select>
                 </div>
 
               </Col>
-              <Col lg='3' md='3'>
+              <Col lg='3' md='6'>
                 <div className="filter_widget">
                   <select>
                     <option >Sort BY</option>
@@ -77,7 +77,7 @@ const Shop = () => {
                   </select>
                 </div>
               </Col>
-              <Col lg='6' md='6'>
+              <Col lg='6' md='12'>
                 <div className="search_box">
                   <input type="text" placeholder='Search Here......' onChange={handleSearch} />
                   <span><i class="ri-search-line"></i></span>

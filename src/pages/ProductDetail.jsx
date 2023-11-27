@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import Footer from '../Conponents/Footer/Footer'
 import { Container, Row, Col } from 'reactstrap'
 import { useParams } from 'react-router-dom'
@@ -25,11 +25,17 @@ const ProductDetail = () => {
   const { productName, category, imgUrl, price, shortDesc, description, reviews, avgRating } = productItem
   const relatedProduct = products.filter(item => item.category === category)
   const submitHandler = (e) => {
-    e.preventdefault() 
+    e.preventDefault();
+    
     const reviewUserName = userReview.current.value
     const reviewUserMsg = userReviwMsg.current.value
-    console.log("reviewUserName" + reviewUserMsg )
-    console.log("reviewUserName" + reviewUserName )
+    const reveiwObj = {
+      userName: reviewUserName,
+      userMsg: reviewUserMsg,
+      rating: rat
+    };
+    toast.success("Reveiw Submitted")
+   
   };
   const dispatch = useDispatch()
   const addToCard = () => {
@@ -45,12 +51,15 @@ const ProductDetail = () => {
 
   }
 
+useEffect(() => {
+  window.scrollTo(0,0)
 
+}, [products])
 
   return (
     <>
       <Helmet title={productName}>
-        <Commomsection />
+        <Commomsection title={productName} />
         <section className='pt-0'>
           <Container>
             <Row>
@@ -133,31 +142,31 @@ const ProductDetail = () => {
                           </ul>
                           <div className="reveiw_form">
                             <h4 className='mb-3'> <q> please share your valuable experience with us </q></h4>
-                            <form  onSubmit={submitHandler}>
+                            <form action='post' onSubmit={submitHandler}>
                               <div className="form_group">
-                                <input type="text" placeholder=' Enter Your Name' ref={userReview} />
+                                <input type="text" required placeholder='  Enter Your Name' ref={userReview} />
                               </div>
-                              <div className="form_group d-flex align-item-center gap-5">
-                                <span onClick={() => setRat(1)}>1
+                              <div className="form_group d-flex align-item-center gap-4 rating_group">
+                                <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRat(1)}>1
                                   <i class="ri-star-s-fill"></i>
-                                </span>
-                                <span onClick={() => setRat(2)}>2
+                                </motion.span>
+                                <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRat(2)}>2 
                                   <i class="ri-star-s-fill"></i>
-                                </span>
-                                <span onClick={() => setRat(3)}>3
+                                </motion.span>
+                                <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRat(3)}>3
                                   <i class="ri-star-s-fill"></i>
-                                </span>
-                                <span onClick={() => setRat(4)}>4
+                                </motion.span>
+                                <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRat(4)}>4
                                   <i class="ri-star-s-fill"></i>
-                                </span>
-                                <span onClick={() => setRat(5)}>5
+                                </motion.span>
+                                <motion.span whileTap={{ scale: 1.2 }} onClick={() => setRat(5)}>5
                                   <i class="ri-star-s-fill"></i>
-                                </span>
+                                </motion.span>
                               </div>
                               <div className="form_group">
                                 <textarea type="text" rows={5} placeholder=' Reveiw Message....' ref={userReviwMsg} />
                               </div>
-                              <button type='submit' className='buy_btn1'>Submit</button>
+                              <button type='submit' required className='buy_btn1'>Submit</button>
                             </form>
                           </div>
                         </div>
