@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import './Header.css'
 import { Container, Row, Col } from 'reactstrap'
 import logo from '../../images/eco-logo.png'
@@ -9,6 +9,10 @@ import { useSelector } from 'react-redux'
 
 
 const Header = () => {
+  const navigate = useNavigate()
+  const navigateToCart = () =>{
+    navigate("/card")
+  }
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
   const nav_link = [
     {
@@ -74,7 +78,7 @@ const Header = () => {
                   <i class="ri-heart-line"></i>
                   <span className='badge'>1</span>
                 </span>
-                <span className='card_icon'>
+                <span className='card_icon' onClick={navigateToCart}>
                   < i class="ri-shopping-bag-line"></i>
                   
                   <span className='badge'>{totalQuantity}</span>
