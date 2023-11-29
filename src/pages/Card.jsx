@@ -13,6 +13,7 @@ import { NavLink } from 'react-router-dom'
 const Card = () => {
   const cartItem = useSelector((state) => state.cart.cartItem)
   const totalAmount = useSelector((state) => state.cart.totalAmount)
+  console.log(cartItem)
   return (
     <>
       <Helmet title={"Dream Furniture Card"} >
@@ -48,16 +49,19 @@ const Card = () => {
 
               </Col>
               <Col lg="3">
-                <div>
-                  <h5>Subtotal</h5>
-                  <span> {totalAmount}</span>
+                <div className='mt-4 mb-4'>
+                  <h5 className='d-flex align-items-center justify-content-between' >Subtotal
+                    <span className='fs-4 fw-bold'>Rs.{totalAmount}/-</span>
+
+                  </h5>
                 </div>
                 <div>
-                  <NavLink to={"/Shop"}>
-                    <button className='buy_btn2 pt-0 '>Continue-Shopping</button>
-                  </NavLink>
+
                   <NavLink to={"/CheckOut"}>
-                    <button className='buy_btn2 pt-0 '>CheckOut</button>
+                    <button className='buy_btn2  mb-3 '>CheckOut</button>
+                  </NavLink>
+                  <NavLink to={"/Shop"}>
+                    <button className='buy_btn2  '>Continue-Shopping</button>
                   </NavLink>
                 </div>
               </Col>

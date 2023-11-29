@@ -37,20 +37,20 @@ const Home = () => {
           <Container >
             <Row>
               <Col lg="6" md="6">
-                <div className='hero_content'>
+                <motion.div  className='hero_content'>
                   <p className='hero_subtitle'> Trending Product In {year}</p>
-                  <h2>Make Your Interior More Minimalistic & Modern</h2>
+                  <h2  >Make Your Interior More Minimalistic & Modern</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit. Neque unde itaquelaborum numquam ullam sequi vero,
                     incidunt quisquam eaque veritatis?</p>
                   <motion.button whileTap={{ scale: 1.4 }} className='buy_btn'><NavLink to={'/Shop'}>
                     SHOP NOW</NavLink>
                   </motion.button>
-                </div>
+                </motion.div>
               </Col>
               <Col lg='6' md='6'>
                 <div className='hero_img'>
-                  <img src={HeroImg} alt="" />
+                  <img src={countTimer} alt="" />
                 </div>
               </Col>
             </Row>
