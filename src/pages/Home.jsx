@@ -50,7 +50,7 @@ const Home = () => {
               </Col>
               <Col lg='6' md='6'>
                 <div className='hero_img'>
-                  <img src={countTimer} alt="" />
+                  <img src={HeroImg} alt="" />
                 </div>
               </Col>
             </Row>

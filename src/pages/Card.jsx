@@ -30,8 +30,9 @@ const Card = () => {
                         <tr>
                           <th>Image</th>
                           <th>Title</th>
-                          <th>Price</th>
+                          <th>Product Price</th>
                           <th>Qty</th>
+                          <th> Price</th>
                           <th>Delete</th>
                         </tr>
                       </thead>
@@ -82,8 +83,9 @@ const Tr = ({ item }) => {
     <tr >
       <td><img src={item.imgUrl} alt="" /></td>
       <td>{item.productName}</td>
-      <td>Rs.{item.price}</td>
+      <td>PKR {item.price}</td>
       <td>{item.quantity}px</td>
+      <td>PKR {item.price * item.quantity}</td>
       <motion.td whileTap={{ scale: 0.8 }}>
         <span >
           <i onClick={deleteProduct} class="ri-delete-bin-2-line"></i>
