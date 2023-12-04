@@ -14,6 +14,15 @@ import Footer from '../Conponents/Footer/Footer';
 const router = createBrowserRouter([
 
     {
+        path: "/Login",
+        element: <Login />
+    },
+    {
+        path: "/SignUp",
+        element: <SignUp />
+    },
+
+    {
         path: "/",
         element: <Header />,
         children: [
@@ -36,24 +45,16 @@ const router = createBrowserRouter([
                 path: "/Card",
                 element: <Card />
             },
-            {
-                path: "/Login",
-                element: <Login />
-            },
-            {
-                path: "/SignUp",
-                element: <SignUp />
-            },
+
             {
                 path: "/CheckOut",
                 element: <CheckOut />
-            },
-
+            }
         ]
     },
     {
-        path:"/",
-        element:<Footer />
+        path: "/",
+        element: <Footer />
     }
 ])
 

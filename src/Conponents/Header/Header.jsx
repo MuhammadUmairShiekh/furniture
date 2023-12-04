@@ -50,8 +50,8 @@ const Header = () => {
   const muneToggle = () => menuRef.current.classList.toggle("active_menu")
   return (
     <>
-      <header className='header' ref={headerRef}  >
-        <Container>
+      <header className='header ' ref={headerRef}   >
+        <Container className='sticky-top'> 
           <Row>
             <div className='nav_wrapper'>
               <div className='logo'>
