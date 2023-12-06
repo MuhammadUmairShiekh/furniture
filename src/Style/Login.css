@@ -2,23 +2,25 @@
     background-color: var(--primary-color);
     padding: 40px;
     border-radius: 9px;
-    /* width: 450px; */
+    width: 450px;
     min-height: 75vh !important;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    
+    margin: auto;
+
 
 }
 
 .auth_form span {
     display: flex;
     justify-content: center;
-    gap: 1.8rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
     cursor: pointer;
 
 }
+
 .auth_form span p {
     border-bottom: 1px groove transparent !important;
 
@@ -46,6 +48,11 @@
 
 }
 
+.form_group2 {
+    /* border-bottom: 1px solid white !important; */
+    line-height: 50px;
+
+}
 
 .form_group1 input {
     width: 100%;
@@ -71,4 +78,44 @@
 .auth_btn {
     margin-bottom: 1rem;
     padding: 2px !important;
+}
+
+.auth_form input[type='file'] {
+    cursor: pointer;
+
+
+}
+
+label.label input[type="file"] {
+    position: absolute;
+    top: -1000px;
+    border: none;
+}
+
+.label {
+    cursor: pointer;
+    /* border: 1px solid #cccccc; */
+    border-radius: 5px;
+    padding: 1px 10px;
+    margin: 2px;
+    background: #ffffff;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline-block;
+    /* margin-top: 10px; */
+}
+
+.label:hover {
+    background-color: rgb(105, 136, 199);
+    color: white;
+}
+
+.label:active {
+    background: rgb(0, 166, 255)(0, 255, 234);
+    color: white;
+}
+
+.label:invalid+span {
+    color: #000000;
 }

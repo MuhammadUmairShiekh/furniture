@@ -7,6 +7,9 @@ import '../Style/Login.css'
 const SignUp = () => {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
+  const [firtName, setFirtName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [file, setFile] = useState(null)
   return (
     <>
       <Helmet title={"Dream Furniture Login"}>
@@ -17,16 +20,22 @@ const SignUp = () => {
                 <Form className='auth_form'>
                   <h4 className='fw-bold mb-4'>Welcome to SignUp </h4>
                   <FormGroup className='form_group1'>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter Your First Name' />
+                    <input type="text" value={firtName} onChange={(e) => setFirtName(e.target.value)} placeholder='Enter Your First Name' />
                   </FormGroup>
                   <FormGroup className='form_group1'>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter Your Last Name' />
+                    <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder='Enter Your Last Name' />
                   </FormGroup>
                   <FormGroup className='form_group1'>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter Your Valid Email' />
                   </FormGroup>
                   <FormGroup className='form_group1'>
                     <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Enter Your Valid Password' />
+                  </FormGroup>
+                  <FormGroup className='form_group2'>
+                    <label className='label'>
+                      <input type="file" className='custom-file-input' value={file} onChange={(e) => setFile(e.target.files[0])} />
+                      <span>Upload Profile Pic</span>
+                    </label>
                   </FormGroup>
                   <button className='buy_btn3 mb-8 auth_btn'>SignUp</button>
                   <span >
