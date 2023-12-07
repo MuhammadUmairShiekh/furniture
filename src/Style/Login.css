@@ -68,11 +68,17 @@
 .form_group1 input::placeholder {
     color: rgba(255, 255, 255, 0.447);
 }
+.auth_form h6 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
 
 .auth_form h4 {
     color: white;
     text-transform: uppercase;
     text-align: center;
+    font-size: 1.1rem;
 }
 
 .auth_btn {
