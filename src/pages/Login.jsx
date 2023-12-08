@@ -36,7 +36,7 @@ const Login = () => {
             <Row>
               <Col lg='6' className='m-auto' >
                 <Form className='auth_form' onSubmit={signIN} >
-                <h6 className='fw-bold text-white  mb-4'>Dream Furniture</h6>
+                  <h6 className='fw-bold text-white  mb-4'>Dream Furniture</h6>
                   <h4 className='fw-bold mb-4'>login </h4>
 
                   <FormGroup className='form_group1'>
@@ -47,9 +47,15 @@ const Login = () => {
                     <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} placeholder='Enter Your Valid Password' />
                   </FormGroup>
                   <button className='buy_btn3 auth_btn'>Login</button>
-                  <span >
-                    <i class="ri-facebook-box-fill"></i>
-                    <i class="ri-google-fill"></i>
+                  <span className='btn1' >
+                    
+                    <button className='buy_btn0 auth_btn'>
+                      <i class="ri-facebook-box-fill">
+                      </i> Facebook </button>
+                    <button className='buy_btn0 auth_btn'>
+                      <i class="ri-google-fill">
+                      </i> Google</button>
+
                   </span>
                   <span>
                     <p>Don't have an account ?</p>

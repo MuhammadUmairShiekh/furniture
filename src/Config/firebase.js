@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyDizz-lVl0ha-JNrP5ZmbKfKqDgae7TH4k",
     authDomain: "furniture-94378.firebaseapp.com",
@@ -21,11 +22,12 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 
-
 async function register(email, pass, firtName, lastName, file) {
+    // const user = userCredential.user;
+
     try {
         await createUserWithEmailAndPassword(auth, email, pass, firtName, lastName, file)
-        await addDoc(collection(db, 'users'), {
+        await addDoc(collection(db, 'users', ), {
             firtName,
             lastName,
             email,
