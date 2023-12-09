@@ -58,7 +58,7 @@ const Card = () => {
                 </div>
                 <div>
 
-                  <NavLink to={"/CheckOut"}>
+                  <NavLink to={"/CheckOutpage"}>
                     <button className='buy_btn2  mb-3 '>CheckOut</button>
                   </NavLink>
                   <NavLink to={"/Shop"}>

@@ -46,7 +46,7 @@ const SignUp = () => {
                 </Col> :
                   <Col lg='6' className='m-auto' >
                     <Form className='auth_form' onSubmit={createAcct} >
-                      <h4 className='fw-bold mb-4'>Welcome to SignUp </h4>
+                      <h4 className='fw-bold mb-4'> SignUp </h4>
                       <FormGroup className='form_group1'>
                         <input type="text" value={firtName} onChange={(e) => setFirtName(e.target.value)} placeholder='Enter Your First Name' />
                       </FormGroup>

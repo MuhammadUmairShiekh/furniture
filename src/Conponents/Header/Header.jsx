@@ -6,10 +6,12 @@ import logo from '../../images/eco-logo.png'
 import User from '../../images/user-icon.png'
 import { motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
+import UseAuth from '../../custom/UseAuth'
 
 
 const Header = () => {
   const navigate = useNavigate()
+  const {currentUser} = UseAuth();
   const navigateToCart = () =>{
     navigate("/card")
   }
@@ -84,7 +86,9 @@ const Header = () => {
                   <span className='badge'>{totalQuantity}</span>
 
                 </span>
-                <span>< motion.img whileTap={{ scale: 1.3 }} src={User} alt="user" /></span>
+                <span>< motion.img whileTap={{ scale: 1.3 }} src={User} alt="user" />
+                {/* <p>{currentUser.displayName}</p> */}
+                </span>
                 <div className='mobile_menu'>
                   <span onClick={muneToggle} >
                     <i class="ri-menu-3-line"></i>

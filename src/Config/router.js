@@ -9,6 +9,7 @@ import CheckOut from '../pages/CheckOut';
 import ProductDetail from "../pages/ProductDetail";
 import Header from '../Conponents/Header/Header';
 import Footer from '../Conponents/Footer/Footer';
+import ProtectedRoutes from './ProtectedRoutes';
 
 
 const router = createBrowserRouter([
@@ -47,8 +48,13 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "/CheckOut",
-                element: <CheckOut />
+                path: "/CheckOutpage",
+                element:
+                    //    <CheckOut />
+
+                    <ProtectedRoutes>
+                        <CheckOut />
+                    </ProtectedRoutes>
             }
         ]
     },

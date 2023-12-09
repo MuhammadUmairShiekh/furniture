@@ -37,7 +37,7 @@ const Home = () => {
           <Container >
             <Row>
               <Col lg="6" md="6">
-                <motion.div  className='hero_content'>
+                <motion.div className='hero_content'>
                   <p className='hero_subtitle'> Trending Product In {year}</p>
                   <h2  >Make Your Interior More Minimalistic & Modern</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -90,10 +90,9 @@ const Home = () => {
                 <div className="clock_top">
                   <h4 className='text-white fs-7 mb-2'>Limited Time Offers</h4>
                   <h3 className='text-white fs-5 mb-3'>Quality ArmChair</h3>
-
                 </div>
                 <Clock />
-                <motion.button whileTap={{ scale: 0.9 }} className='buy_btn store_btn'><NavLink to={'/Shop'}>
+                <motion.button whileTap={{ scale: 1.1 }} className='buy_btn store_btn'><NavLink to={'/Shop'}>
                   Visit Store</NavLink>
                 </motion.button>
               </Col>
