@@ -49,12 +49,13 @@ const router = createBrowserRouter([
 
             {
                 path: "/CheckOutpage",
-                element:
-                    //    <CheckOut />
+                element: < ProtectedRoutes Children={<CheckOut />} />
+                // <CheckOut />
 
-                    <ProtectedRoutes>
-                        <CheckOut />
-                    </ProtectedRoutes>
+
+                // <ProtectedRoutes>
+                //     <CheckOut />
+                // </ProtectedRoutes>
             }
         ]
     },

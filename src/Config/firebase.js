@@ -28,7 +28,7 @@ async function register(email, pass, firtName, lastName, file) {
     try {
         await createUserWithEmailAndPassword(auth, email, pass, firtName, lastName, file)
         await addDoc(collection(db, 'users', ), {
-            firtName,
+            displayName:firtName,
             lastName,
             email,
         });

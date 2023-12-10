@@ -9,11 +9,11 @@ import { toast } from 'react-toastify';
 import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 
 
-
 const Login = () => {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [loading, setLoading] = useState(false)
+  const [password , setPassword] = useState(false)
   const navigate = useNavigate()
 
 
