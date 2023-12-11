@@ -7,24 +7,33 @@
 }
 .product_item{
     cursor: pointer;
+    
 }
+
 .product_card-bottom{
     display: flex;
     align-items: center;
     justify-content: space-between;
 
 }
+.product_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .product_info a h3{
     font-weight: 700;
     color: var(--primary-color);
     margin-top: 15px;
+    /* font-size: 1.1rem;    */
 
 }
 .product_info a h3:hover{
     color: initial;
 }
 .product_name{
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     text-align: center;
 
     

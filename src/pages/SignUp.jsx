@@ -6,6 +6,7 @@ import '../Style/Login.css'
 import { register } from '../Config/firebase'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import Footer from '../Conponents/Footer/Footer'
 
 const SignUp = () => {
   const navigate = useNavigate()
@@ -84,7 +85,7 @@ const SignUp = () => {
 
       </Helmet>
 
-
+      <Footer />
     </>
   )
 }

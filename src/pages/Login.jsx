@@ -7,13 +7,14 @@ import { loginUser } from '../Config/firebase'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { FacebookLoginButton, GoogleLoginButton } from "react-social-login-buttons";
+import Footer from '../Conponents/Footer/Footer'
 
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [loading, setLoading] = useState(false)
-  const [password , setPassword] = useState(false)
+  const [password, setPassword] = useState(false)
   const navigate = useNavigate()
 
 
@@ -90,7 +91,7 @@ const Login = () => {
 
       </Helmet>
 
-
+      <Footer />
     </>
   )
 }

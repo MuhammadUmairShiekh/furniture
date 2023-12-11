@@ -10,18 +10,31 @@ import ProductDetail from "../pages/ProductDetail";
 import Header from '../Conponents/Header/Header';
 import Footer from '../Conponents/Footer/Footer';
 import ProtectedRoutes from './ProtectedRoutes';
-
+import AllProduct from '../adminPanal/AllProduct';
+import AddProduct from '../adminPanal/AddProduct';
+import AdminNav from '../adminPanal/AdminNav';
 
 const router = createBrowserRouter([
 
     {
-        path: "/Login",
-        element: <Login />
+
+        path: "/AdminNav",
+        element: <AdminNav />,
     },
     {
-        path: "/SignUp",
-        element: <SignUp />
+        path: '/dashBoard/all-product',
+        element: <ProtectedRoutes children={<AddProduct />} />
+
     },
+    {
+        path: '/dashBoard/add-product',
+        element: <ProtectedRoutes children={<AllProduct />} />
+    },
+
+
+
+
+
 
     {
         path: "/",
@@ -50,13 +63,17 @@ const router = createBrowserRouter([
             {
                 path: "/CheckOutpage",
                 element: < ProtectedRoutes Children={<CheckOut />} />
-                // <CheckOut />
 
+            },
+            {
+                path: "/Login",
+                element: <Login />
+            },
+            {
+                path: "/SignUp",
+                element: <SignUp />
+            },
 
-                // <ProtectedRoutes>
-                //     <CheckOut />
-                // </ProtectedRoutes>
-            }
         ]
     },
     {

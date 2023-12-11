@@ -33,7 +33,7 @@ function ProductCard({ item }) {
                     <div className='product_img'>
                         <NavLink to={`/Shop/${item.id}`}><motion.img whileHover={{ scale: 1.1 }} src={item.imgUrl} alt="" /></NavLink>
                     </div>
-                    <div className='p-4 product_info'>
+                    <div className='product_info'>
                         <NavLink to={`/Shop/${item.id}`}><h3 className='product_name'>{item.productName}</h3></NavLink>
                         <p className='product_P'>{item.category}</p>
 
