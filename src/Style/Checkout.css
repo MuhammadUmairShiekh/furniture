@@ -25,8 +25,7 @@
 
 }
 
-.checkOut_Card h6,
-h3 {
+.checkOut_Card h6 , h3 {
     line-height: 45px;
     display: flex;
     align-items: center !important;

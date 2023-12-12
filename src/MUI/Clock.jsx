@@ -40,7 +40,7 @@ const Clock = () => {
           <h1 className='text-white fs-3'>
             {`${days<10?"0":""}` + `${days}`}
           </h1>
-          <h3 className='text-white fs-6'>
+          <h3 className='border-0 text-white fs-6'>
             Days
           </h3>
         </div>
@@ -51,7 +51,7 @@ const Clock = () => {
           <h1 className='text-white fs-3'>
             {`${hours<10?"0":""}` + `${hours}`}
           </h1>
-          <h3 className='text-white fs-6'>
+          <h3 className='border-0 text-white fs-6'>
             Hours
           </h3>
         </div>
@@ -62,7 +62,7 @@ const Clock = () => {
           <h1 className='text-white fs-3'>
             {`${min<10?"0":""}` + `${min}`}
           </h1>
-          <h3 className='text-white fs-6'>
+          <h3 className='border-0 text-white fs-6'>
             Minutes
           </h3>
         </div>
@@ -73,7 +73,7 @@ const Clock = () => {
           <h1 className='text-white fs-3'>
             {`${sec<10?"0":""}` + `${sec}`}
           </h1>
-          <h3 className='text-white fs-6'>
+          <h3 className='border-0 text-white fs-6'>
             Seconds
           </h3>
         </div>

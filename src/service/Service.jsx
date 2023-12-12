@@ -15,7 +15,7 @@ const Service = () => {
                             <div className='service_item' style={{background: `${item.bg}` }}>
                                 <span><i className={item.icon}></i></span>
                                 <div>
-                                    <h3>{item.title}</h3>
+                                    <h3 className='border-0'>{item.title}</h3>
                                     <p>{item.subtitle}</p>
                                 </div>
                             </div>

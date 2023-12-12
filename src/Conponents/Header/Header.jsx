@@ -88,7 +88,7 @@ const Header = () => {
   const togglePofile = () => profileActionref.current.classList.toggle("show_profileAction")
   return (
     <>
-      <header className='header ' ref={headerRef} >
+      <header className='header' ref={headerRef} >
         <Container >
           <Row>
             <div className='nav_wrapper'>

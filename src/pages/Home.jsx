@@ -89,7 +89,7 @@ const Home = () => {
               <Col lg='6' md='12' className='count_down' >
                 <div className="clock_top">
                   <h4 className='text-white fs-7 mb-2'>Limited Time Offers</h4>
-                  <h3 className='text-white fs-5 mb-3'>Quality ArmChair</h3>
+                  <h3 className=' border-0 text-white fs-5 mb-3'>Quality ArmChair</h3>
                 </div>
                 <Clock />
                 <motion.button whileTap={{ scale: 1.1 }} className='buy_btn store_btn'><NavLink to={'/Shop'}>

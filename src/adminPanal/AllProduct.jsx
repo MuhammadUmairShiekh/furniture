@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const AllProduct = () => {
   return (
-    <div>AllProduct</div>
-  )
-}
+    <>
+      <h2>Samra </h2>
+      <div>AllProduct</div>
+    </>
+  );
+};
 
-export default AllProduct
+export default AllProduct;
