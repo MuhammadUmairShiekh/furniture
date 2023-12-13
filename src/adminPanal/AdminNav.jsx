@@ -1,10 +1,31 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import logo from "../images/eco-logo.png";
+import User from "../images/user-icon.png";
 import "../Style/Admin_Nav.css";
+import { Helmet } from "react-helmet";
+import { NavLink } from "react-router-dom";
 
 const AdminNav = () => {
+  const admin_nav = [
+    {
+      path: "/dashBoard",
+      display: "DashBoard",
+    },
+    {
+      path: "/dashBoard/all-product",
+      display: "AllProduct",
+    },
+    {
+      path: "/dashBoard/Orders",
+      display: "Orders",
+    },
+    {
+      path: "/dashBoard/Users",
+      display: "Users",
+    },
+  ];
   return (
     <>
       <header className="admin_header">
@@ -21,6 +42,7 @@ const AdminNav = () => {
               </div>
               <div className="search_box">
                 <input type="text" placeholder="Search Here......" />
+
                 <span>
                   <i class="ri-search-line"></i>
                 </span>
@@ -32,11 +54,36 @@ const AdminNav = () => {
                 <span>
                   <i class="ri-settings-2-line"></i>
                 </span>
+                <motion.img whileTap={{ scale: 1.3 }} src={User} alt="user" />
               </div>
             </div>
           </Container>
         </div>
       </header>
+      <section className="admin_menu">
+        <Container>
+          <Row>
+            <div className="admin_navigation">
+              <ul className="admim_menu-list">
+                {admin_nav.map((item, index) => {
+                  return (
+                    <li className="admin_menu_item"  key={index}>
+                      <NavLink
+                        to={item.path}
+                        className={(navClass) =>
+                          navClass.isActive ? "nav_active" : " "
+                        }
+                      >
+                        {item.display}
+                      </NavLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </Row>
+        </Container>
+      </section>
     </>
   );
 };
