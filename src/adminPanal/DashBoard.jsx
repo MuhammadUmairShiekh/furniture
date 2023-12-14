@@ -2,15 +2,14 @@ import React from "react";
 import AdminNav from "./AdminNav";
 import Footer from "../Conponents/Footer/Footer";
 
-
-const AllProduct = () => {
+const DashBoard = () => {
   return (
     <>
       <AdminNav />
-      <div>All Product</div>;
+      <div>DashBoard</div>;
       <Footer />
     </>
   );
 };
 
-export default AllProduct;
+export default DashBoard;

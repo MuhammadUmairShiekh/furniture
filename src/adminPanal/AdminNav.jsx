@@ -71,7 +71,7 @@ const AdminNav = () => {
                       <NavLink
                         to={item.path}
                         className={(navClass) =>
-                          navClass.isActive ? "nav_active" : " "
+                          navClass.isActive ? "nav_active1" : " "
                         }
                       >
                         {item.display}
@@ -84,6 +84,7 @@ const AdminNav = () => {
           </Row>
         </Container>
       </section>
+      
     </>
   );
 };
