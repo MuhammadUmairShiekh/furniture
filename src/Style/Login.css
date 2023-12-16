@@ -50,6 +50,7 @@
 
 }
 
+
 .form_group2 {
     /* border-bottom: 1px solid white !important; */
     line-height: 50px;
@@ -66,9 +67,9 @@
     outline: none;
 }
 
-.form_group1 input::placeholder {
+/* .form_group1 input::placeholder {
     color: rgba(255, 255, 255, 0.447);
-}
+} */
 
 .auth_form h6 {
     color: white;
@@ -116,9 +117,8 @@ label.label input[type="file"] {
     transition: 0.9s all;
 }
 
-.label {
+/* .label {
     cursor: pointer;
-    /* border: 1px solid #cccccc; */
     border-radius: 5px;
     padding: 1px 10px;
     margin: 2px;
@@ -127,7 +127,6 @@ label.label input[type="file"] {
     color: var(--primary-color);
     font-weight: 600;
     display: inline-block;
-    /* margin-top: 10px; */
 }
 
 .label:hover {
@@ -138,7 +137,7 @@ label.label input[type="file"] {
 .label:active {
     background: rgb(0, 166, 255)(0, 255, 234);
     color: white;
-}
+} */
 
 .label:invalid+span {
     color: #000000;

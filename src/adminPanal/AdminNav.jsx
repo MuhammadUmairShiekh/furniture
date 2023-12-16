@@ -18,6 +18,10 @@ const AdminNav = () => {
       display: "AllProduct",
     },
     {
+      path: "/dashBoard/add-product",
+      display: "AddProduct",
+    },
+    {
       path: "/dashBoard/Orders",
       display: "Orders",
     },
@@ -67,7 +71,7 @@ const AdminNav = () => {
               <ul className="admim_menu-list">
                 {admin_nav.map((item, index) => {
                   return (
-                    <li className="admin_menu_item"  key={index}>
+                    <li className="admin_menu_item" key={index}>
                       <NavLink
                         to={item.path}
                         className={(navClass) =>
@@ -84,7 +88,6 @@ const AdminNav = () => {
           </Row>
         </Container>
       </section>
-      
     </>
   );
 };

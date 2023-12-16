@@ -4,7 +4,13 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+import {
+  getFirestore,
+  addDoc,
+  collection,
+  getDoc,
+  getDocs,
+} from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { toast } from "react-toastify";
 
@@ -19,7 +25,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 const storage = getStorage(app);
 
 async function register(email, pass, firtName, lastName, file) {
@@ -46,22 +52,47 @@ async function register(email, pass, firtName, lastName, file) {
 function loginUser(email, pass) {
   return signInWithEmailAndPassword(auth, email, pass);
 }
-  async function addProductItem(
-    prodTitle,
-    shortDes,
-    des,
-    prodCategory,
-    prodPrice,
-    prodImage
-  ) {};
 
-// async function uploadImages(file) {
+async function addProductList({
+  prodTitle,
+  shortDes,
+  description,
+  prodCategory,
+  prodPrice,
+  prodImage,
+}) {
+  try {
+    const url = await uploadImage(prodImage);
+    const data = {
+      prodTitle,
+      shortDes,
+      description,
+      prodCategory,
+      prodPrice,
+      image: url,
+    };
+    await addDoc(collection(db, "ProductList"), data);
+    toast.success("Data Has Been Put");
+  } catch (e) {
+    toast.error(e.message);
+  }
+}
+async function uploadImage(prodImage) {
+  const storageRef = ref(storage, "ProductImages/" + prodImage.name);
+  await uploadBytes(storageRef, prodImage);
+  const url = await getDownloadURL(storageRef);
+  return url;
+}
 
-//     const storageRef = ref(storage, 'userImage/' + file.name);
-//     await uploadBytes(storageRef, file);
-//     const url = await getDownloadURL(storageRef)
-//     return url
+async function getData() {
+  const querySnapshot = await getDocs(collection(db, "ProductList"));
+  const Ads = [];
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    data.id = doc.id;
+    Ads.push(data);
+  });
+  return Ads;
+}
 
-// }
-
-export { register, loginUser };
+export { register, loginUser, addProductList , getData };
