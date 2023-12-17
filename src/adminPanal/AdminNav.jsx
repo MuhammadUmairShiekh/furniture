@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Container, Row } from "react-bootstrap";
 import { motion } from "framer-motion";
 import logo from "../images/eco-logo.png";
 import User from "../images/user-icon.png";
 import "../Style/Admin_Nav.css";
-import { Helmet } from "react-helmet";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import UseAuth from "../custom/UseAuth";
+import { auth } from "../Config/firebase";
+import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
+import MiniDrawer from "./textNavber";
 
 const AdminNav = () => {
+  const navigate = useNavigate();
+  const { currentUser } = UseAuth();
+  const profileActionref = useRef(null);
+  const LogOut = () => {
+    Swal.fire({
+      title: "Are you sure You won Log Out",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Log Out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        toast.success("Logout Sucessfully");
+        try {
+          signOut(auth);
+          navigate("/");
+        } catch (e) {
+          toast.error(e.message);
+        }
+      }
+    });
+  };
+
+  const toggleProfile = () => {
+    profileActionref.current.classList.toggle("show_profileAction");
+  };
   const admin_nav = [
     {
       path: "/dashBoard",
@@ -22,21 +54,22 @@ const AdminNav = () => {
       display: "AddProduct",
     },
     {
-      path: "/dashBoard/Orders",
+      path: "/Order",
       display: "Orders",
     },
     {
-      path: "/dashBoard/Users",
+      path: "/User",
       display: "Users",
     },
   ];
   return (
     <>
+      {/* <MiniDrawer /> */}
       <header className="admin_header">
         <div className="admin_top_Nav">
           <Container>
             <div className="admin_top-Nav-Wrapper">
-              <div className="logo">
+              <div className="logo ">
                 <motion.img whileTap={{ scale: 1.2 }} src={logo} alt="" />
                 <div>
                   {/* <h5>
@@ -58,7 +91,30 @@ const AdminNav = () => {
                 <span>
                   <i class="ri-settings-2-line"></i>
                 </span>
-                <motion.img whileTap={{ scale: 1.3 }} src={User} alt="user" />
+                <div></div>
+                {/* <motion.img
+                  whileTap={{ scale: 1.3 }}
+                  src={User}
+                  alt="user"
+                  onClick={toggleProfile}
+                /> */}
+                <div
+                  className="profile_actions "
+                  ref={profileActionref}
+                  onClick={toggleProfile}
+                >
+                  {currentUser ? (
+                    <span className="LogOut" onClick={LogOut}>
+                      Logout{" "}
+                    </span>
+                  ) : (
+                    <div className="lists d-flex  align-items-center justify-content-center flex-column">
+                      <NavLink to={"/SignUp"}>signUp</NavLink>
+
+                      <NavLink to={"/login"}>Login</NavLink>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </Container>

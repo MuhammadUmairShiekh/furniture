@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import AdminNav from "./AdminNav";
 import Footer from "../Conponents/Footer/Footer";
 import { Container, Row, Col } from "react-bootstrap";
+import { userData, db } from "../Config/firebase";
+import { toast } from "react-toastify";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { getData, db } from "../Config/firebase";
 import { doc, deleteDoc } from "firebase/firestore";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
-import { toast } from "react-toastify";
 
-const AllProduct = () => {
+const User = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -18,21 +18,22 @@ const AllProduct = () => {
     productData();
   }, []);
   const productData = async () => {
-    const productList = await getData();
-    setData(productList);
+    const userList = await userData();
+    setData(userList);
     setLoading(true);
   };
-  const deleteData = async  id => {
-    await deleteDoc(doc(db, "ProductList" , id))
-    toast.success("Data Delete")
-
+  const deleteData = async (id) => {
+    await deleteDoc(doc(db, "ProductList", id));
+    toast.success("Data Delete");
   };
-
   return (
     <>
       <AdminNav />
       <Container>
         <Row>
+          <Col lg="12" className="fw-bold">
+            <h2>User </h2>
+          </Col>
           {!loading ? (
             <Box sx={{ width: 600 }}>
               <Skeleton />
@@ -42,14 +43,13 @@ const AllProduct = () => {
               <Skeleton animation={false} />
             </Box>
           ) : (
-            <Col lg="12">
-              <table className="table">
+            <Col lg="12" className="yt-5">
+              <table className="table text-left">
                 <thead>
                   <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Categroy</th>
-                    <th>Price</th>
+                    <th>UserName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -57,15 +57,14 @@ const AllProduct = () => {
                   {data.map((item, index) => {
                     return (
                       <tr key={index}>
-                        <td>
-                          <img src={item.image} alt="" />
-                        </td>
-                        <td>{item.prodTitle}</td>
-                        <td>{item.prodCategory}</td>
-                        <td>{item.prodPrice}</td>
+                        <td>{item.firtName}</td>
+                        <td>{item.lastName}</td>
+                        <td>{item.email}</td>
                         <td>
                           <Button
-                            onClick={() =>{deleteData(item.id)}}
+                            onClick={() => {
+                              deleteData(item.id);
+                            }}
                             variant="contained"
                             startIcon={<DeleteIcon />}
                           >
@@ -81,10 +80,9 @@ const AllProduct = () => {
           )}
         </Row>
       </Container>
-
       <Footer />
     </>
   );
 };
 
-export default AllProduct;
+export default User;

@@ -14,6 +14,8 @@ import AllProduct from "../adminPanal/AllProduct";
 import AddProduct from "../adminPanal/AddProduct";
 import AdminNav from "../adminPanal/AdminNav";
 import DashBoard from "../adminPanal/DashBoard";
+import User from "../adminPanal/User";
+import Order from "../adminPanal/Order";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
   {
     path: "/dashBoard",
     element: <ProtectedRoutes Children={<DashBoard />} />,
+  },
+  {
+    path: "/User",
+    element: <ProtectedRoutes Children={<User />} />,
+  },
+  {
+    path: "/Order",
+    element: <ProtectedRoutes Children={<Order />} />,
   },
 
   {

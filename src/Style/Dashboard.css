@@ -1,0 +1,29 @@
+.revenue_box,
+.order_box,
+.user_box,
+.product_box {
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  margin: 10px;
+}
+h5{
+    font-weight: 600;
+}
+
+.revenue_box {
+  background-color: #00a8ff;
+}
+
+.order_box{
+    background-color: orange;
+}
+.product_box{
+    background: green;
+}
+
+.user_box{
+    background-color: #ff9ff3 ;
+}

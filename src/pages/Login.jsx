@@ -18,25 +18,36 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import MailIcon from '@mui/icons-material/Mail';
+import MailIcon from "@mui/icons-material/Mail";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
-  // const [password, setPassword] = useState(false)
   const navigate = useNavigate();
 
   const signIN = async (e) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      await loginUser(email, pass);
-      navigate("/CheckOutpage");
-      toast.success("Logged Successfully");
-    } catch (e) {
-      setLoading(false);
-      toast.error(e.message);
+    if (email == "admin@gmail.com") {
+      try {
+        setLoading(true);
+        await loginUser(email, pass);
+        navigate("/dashBoard");
+        toast.success("Logging Admin Panel !");
+      } catch (e) {
+        setLoading(false);
+        toast.error(e.message);
+      }
+    } else {
+      try {
+        setLoading(true);
+        await loginUser(email, pass);
+        navigate("/CheckOutpage");
+        toast.success("Logged Successfully");
+      } catch (e) {
+        setLoading(false);
+        toast.error(e.message);
+      }
     }
   };
   const [showPassword, setShowPassword] = React.useState(false);

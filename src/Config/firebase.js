@@ -8,8 +8,11 @@ import {
   getFirestore,
   addDoc,
   collection,
+  collectionRef,
   getDoc,
   getDocs,
+  onSnapshot,
+  
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { toast } from "react-toastify";
@@ -85,14 +88,30 @@ async function uploadImage(prodImage) {
 }
 
 async function getData() {
-  const querySnapshot = await getDocs(collection(db, "ProductList"));
-  const Ads = [];
-  querySnapshot.forEach((doc) => {
+  const onSnapshot = await getDocs(collection(db, "ProductList"));
+  const Product = [];
+  onSnapshot.forEach((doc) => {
     const data = doc.data();
     data.id = doc.id;
-    Ads.push(data);
+    Product.push(data);
   });
-  return Ads;
-}
+  return Product;
 
-export { register, loginUser, addProductList , getData };
+}
+  async function userData() {
+    const onSnapshot = await getDocs(collection(db, "users"));
+    const Users = [];
+    onSnapshot.forEach((doc) => {
+      const data = doc.data();
+      data.id = doc.id;
+      Users.push(data);
+    });
+    return Users;
+  // await onSnapshot(collectionRef , snapshot => {
+  //   snapshot.doc.map(doc => ({
+  //     ...doc.data(), id: doc.id
+  //   }));
+  // })
+  }
+
+export { register, loginUser, addProductList , getData ,userData };
