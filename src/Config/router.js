@@ -19,27 +19,27 @@ import Order from "../adminPanal/Order";
 
 const router = createBrowserRouter([
   {
-    path: "/AdminNav",
+    path: "/dashDordi/AdminNav",
     element: <ProtectedRoutes Children={<AdminNav />} />,
   },
   {
-    path: "/dashBoard/add-product",
+    path: "/dashDordi/add-product",
     element: <ProtectedRoutes Children={<AddProduct />} />,
   },
   {
-    path: "/dashBoard/all-product",
+    path: "/dashDordi/all-product",
     element: <ProtectedRoutes Children={<AllProduct />} />,
   },
   {
-    path: "/dashBoard",
+    path: "/DashDordi",
     element: <ProtectedRoutes Children={<DashBoard />} />,
   },
   {
-    path: "/User",
+    path: "/U$eRDashoaRdi",
     element: <ProtectedRoutes Children={<User />} />,
   },
   {
-    path: "/Order",
+    path: "/ORderDashDordi",
     element: <ProtectedRoutes Children={<Order />} />,
   },
 

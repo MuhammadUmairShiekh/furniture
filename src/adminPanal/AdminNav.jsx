@@ -42,23 +42,23 @@ const AdminNav = () => {
   };
   const admin_nav = [
     {
-      path: "/dashBoard",
+      path: "/dashDordi",
       display: "DashBoard",
     },
     {
-      path: "/dashBoard/all-product",
+      path: "/dashDordi/all-product",
       display: "AllProduct",
     },
     {
-      path: "/dashBoard/add-product",
+      path: "/dashDordi/add-product",
       display: "AddProduct",
     },
     {
-      path: "/Order",
+      path: "/ORderDashDordi",
       display: "Orders",
     },
     {
-      path: "/User",
+      path: "/U$eRDashoaRdi",
       display: "Users",
     },
   ];

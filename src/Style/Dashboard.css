@@ -9,8 +9,12 @@
   text-transform: uppercase;
   margin: 10px;
 }
-h5{
+.revenue_box h5,
+.order_box h5,
+.user_box h5,
+.product_box h5 {
     font-weight: 600;
+    font-size: 1.2rem;
 }
 
 .revenue_box {
@@ -26,4 +30,10 @@ h5{
 
 .user_box{
     background-color: #ff9ff3 ;
+}
+.revenue_box span,
+.order_box span,
+.user_box span,
+.product_box span {
+  font-size: 1.85rem;
 }

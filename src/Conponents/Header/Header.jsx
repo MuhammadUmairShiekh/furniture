@@ -58,7 +58,7 @@ const Header = () => {
   const menuRef = useRef(null);
   const profileActionref = useRef(null);
 
-  const stickyHeader = () => {
+  let stickyHeader = () => {
     window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 20 ||

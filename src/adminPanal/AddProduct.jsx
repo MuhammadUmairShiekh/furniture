@@ -11,12 +11,12 @@ import Button from "@mui/material/Button";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const AddProduct = () => {
-  const [prodTitle, setProdTile] = useState("");
-  const [shortDes, setShortDes] = useState("");
+  const [productName, setProdTile] = useState("");
+  const [shortDesc, setShortDes] = useState("");
   const [description, setDescription] = useState("");
-  const [prodPrice, setProdPrice] = useState("");
-  const [prodCategory, setProdCategory] = useState("");
-  const [prodImage, setProdImage] = useState(null);
+  const [price, setProdPrice] = useState("");
+  const [category, setProdCategory] = useState("");
+  const [imgUrl, setProdImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
@@ -34,12 +34,12 @@ const AddProduct = () => {
     try {
       setLoading(true);
       await addProductList({
-        prodTitle,
-        shortDes,
+        productName,
+        shortDesc,
         description,
-        prodCategory,
-        prodPrice,
-        prodImage: prodImage[0],
+        category,
+        price,
+        imgUrl: imgUrl[0],
       });
       setLoading(false);
       setDescription("");
@@ -79,7 +79,7 @@ const AddProduct = () => {
                     <input
                       type="text"
                       placeholder="Double Sofa"
-                      value={prodTitle}
+                      value={productName}
                       onChange={(e) => setProdTile(e.target.value)}
                       required
                     />
@@ -89,7 +89,7 @@ const AddProduct = () => {
                     <input
                       type="text"
                       placeholder="lorem........"
-                      value={shortDes}
+                      value={shortDesc}
                       onChange={(e) => setShortDes(e.target.value)}
                       required
                     />
@@ -110,7 +110,7 @@ const AddProduct = () => {
                       <input
                         type="number"
                         placeholder="PKR100,000"
-                        value={prodPrice}
+                        value={price}
                         onChange={(e) => setProdPrice(e.target.value)}
                         required
                       />
@@ -119,7 +119,7 @@ const AddProduct = () => {
                       <span>Category</span>
                       <select
                         className="w-100"
-                        value={prodCategory}
+                        value={category}
                         onChange={(e) => setProdCategory(e.target.value)}
                         required
                       >
@@ -143,7 +143,7 @@ const AddProduct = () => {
                         component="label"
                         variant="contained"
                         startIcon={<CloudUploadIcon />}
-                        files={prodImage}
+                        files={imgUrl}
                         onChange={(e) => setProdImage(e.target.files)}
                       >
                         Upload file

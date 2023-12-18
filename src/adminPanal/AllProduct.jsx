@@ -22,10 +22,9 @@ const AllProduct = () => {
     setData(productList);
     setLoading(true);
   };
-  const deleteData = async  id => {
-    await deleteDoc(doc(db, "ProductList" , id))
-    toast.success("Data Delete")
-
+  const deleteData = async (id) => {
+    await deleteDoc(doc(db, "ProductList", id));
+    toast.success("Data Delete");
   };
 
   return (
@@ -58,14 +57,16 @@ const AllProduct = () => {
                     return (
                       <tr key={index}>
                         <td>
-                          <img src={item.image} alt="" />
+                          <img src={item.imgUrl} alt="" />
                         </td>
-                        <td>{item.prodTitle}</td>
-                        <td>{item.prodCategory}</td>
-                        <td>{item.prodPrice}</td>
+                        <td>{item.productName}</td>
+                        <td>{item.category}</td>
+                        <td>{item.price}</td>
                         <td>
                           <Button
-                            onClick={() =>{deleteData(item.id)}}
+                            onClick={() => {
+                              deleteData(item.id);
+                            }}
                             variant="contained"
                             startIcon={<DeleteIcon />}
                           >

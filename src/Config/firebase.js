@@ -12,7 +12,6 @@ import {
   getDoc,
   getDocs,
   onSnapshot,
-  
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { toast } from "react-toastify";
@@ -57,61 +56,62 @@ function loginUser(email, pass) {
 }
 
 async function addProductList({
-  prodTitle,
-  shortDes,
+  productName,
+  shortDesc,
   description,
-  prodCategory,
-  prodPrice,
-  prodImage,
+  category,
+  price,
+  imgUrl,
 }) {
   try {
-    const url = await uploadImage(prodImage);
+    const url = await uploadImage(imgUrl);
     const data = {
-      prodTitle,
-      shortDes,
+      productName,
+      shortDesc,
       description,
-      prodCategory,
-      prodPrice,
-      image: url,
+      category,
+      price,
+      imgUrl: url,
     };
-    await addDoc(collection(db, "ProductList"), data);
+    await addDoc(collection(db, "products"), data);
     toast.success("Data Has Been Put");
   } catch (e) {
     toast.error(e.message);
   }
 }
-async function uploadImage(prodImage) {
-  const storageRef = ref(storage, "ProductImages/" + prodImage.name);
-  await uploadBytes(storageRef, prodImage);
+async function uploadImage(imgUrl) {
+  const storageRef = ref(storage, "ProductImages/" + imgUrl.name);
+  await uploadBytes(storageRef, imgUrl);
   const url = await getDownloadURL(storageRef);
   return url;
 }
 
 async function getData() {
-  const onSnapshot = await getDocs(collection(db, "ProductList"));
+  const onSnapshot = await getDocs(collection(db, "products"));
   const Product = [];
   onSnapshot.forEach((doc) => {
     const data = doc.data();
     data.id = doc.id;
     Product.push(data);
   });
-  return Product;
 
+  return Product;
 }
-  async function userData() {
-    const onSnapshot = await getDocs(collection(db, "users"));
-    const Users = [];
-    onSnapshot.forEach((doc) => {
-      const data = doc.data();
-      data.id = doc.id;
-      Users.push(data);
-    });
-    return Users;
+async function userData() {
+  const onSnapshot = await getDocs(collection(db, "users"));
+  const Users = [];
+  onSnapshot.forEach((doc) => {
+    const data = doc.data();
+    data.id = doc.id;
+    Users.push(data);
+  });
+
+  return Users;
   // await onSnapshot(collectionRef , snapshot => {
   //   snapshot.doc.map(doc => ({
   //     ...doc.data(), id: doc.id
   //   }));
   // })
-  }
+}
 
-export { register, loginUser, addProductList , getData ,userData };
+export { register, loginUser, addProductList, getData, userData };
