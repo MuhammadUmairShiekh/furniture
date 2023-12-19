@@ -123,10 +123,11 @@ const AddProduct = () => {
                         onChange={(e) => setProdCategory(e.target.value)}
                         required
                       >
-                        <option value="Chair">Chair</option>
-                        <option value="Sofa">Sofa</option>
-                        <option value="Table">Table</option>
-                        <option value="Bed">Bed</option>
+                        <option>Filter By Category</option>
+                        <option value="sofa">sofa</option>
+                        <option value="chair">chair</option>
+                        <option value="table">table</option>
+                        <option value="bed">bed</option>
                       </select>
                     </FormGroup>
                   </div>

@@ -107,11 +107,25 @@ async function userData() {
   });
 
   return Users;
-  // await onSnapshot(collectionRef , snapshot => {
-  //   snapshot.doc.map(doc => ({
-  //     ...doc.data(), id: doc.id
-  //   }));
-  // })
+}
+const restro_data1 = [
+
+]
+function postRestaurants() {
+  try {
+    for (var i = 0; i < restro_data1.length; i++) {
+      addDoc(collection(db, "products"), restro_data1[i]);
+    }
+  } catch (e) {
+    alert(e.message);
+  }
 }
 
-export { register, loginUser, addProductList, getData, userData };
+export {
+  register,
+  loginUser,
+  addProductList,
+  getData,
+  userData,
+  postRestaurants,
+};

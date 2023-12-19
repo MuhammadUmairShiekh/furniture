@@ -23,7 +23,7 @@ const AllProduct = () => {
     setLoading(true);
   };
   const deleteData = async (id) => {
-    await deleteDoc(doc(db, "ProductList", id));
+    await deleteDoc(doc(db, "products", id));
     toast.success("Data Delete");
   };
 
