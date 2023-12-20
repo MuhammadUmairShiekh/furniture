@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "./Header.css";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import logo from "../../images/eco-logo.png";
 import User from "../../images/user-icon.png";
 import { motion } from "framer-motion";

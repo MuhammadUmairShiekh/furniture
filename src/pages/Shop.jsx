@@ -4,11 +4,13 @@ import Commomsection from './Commomsection'
 import Helmet from '../Conponents/Helmet/Helmet'
 import { Container, Row, Col } from 'react-bootstrap'
 import '../Style/Shop.css'
-import products from '../data/products'
+// import products from '../data/products'
 import {  useState } from 'react'
 import ProductList from '../MUI/ProductList'
+import useGetData from '../custom/useGetData'
 
 const Shop = () => {
+  const { data: products } = useGetData("products");
   const [productList, setProductList] = useState(products)
 
   const handleFilter = (e) => {

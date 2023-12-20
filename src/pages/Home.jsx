@@ -11,9 +11,12 @@ import ProductList from "../MUI/ProductList";
 import Clock from "../MUI/Clock";
 import Footer from "../Conponents/Footer/Footer";
 import useGetData from "../custom/useGetData";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 
 const Home = () => {
   const { data: products } = useGetData("products");
+  const [loading, setLoading] = useState(false);
   const [trending, setTrending] = useState([]);
   const [bestProduct, setBestProduct] = useState([]);
   const year = new Date().getFullYear();
@@ -67,7 +70,7 @@ const Home = () => {
           </Container>
         </section>
         <ProductList data={trending} />
-        <ProductList data={console.log(trending)} />
+        {/* <ProductList data={console.log(trending)} /> */}
 
         <section className="best_Sale">
           <Container>
@@ -110,7 +113,17 @@ const Home = () => {
               <Col lg="12" className="text-center">
                 <h2 className="section_title">New Arrivals</h2>
               </Col>
-              <ProductList data={bestProduct} />
+              {loading ? (
+                <Box sx={{ width: 600 }}>
+                  <Skeleton />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation={false} />
+                </Box>
+              ) : (
+                <ProductList data={bestProduct} />
+              )}
             </Row>
           </Container>
         </section>
