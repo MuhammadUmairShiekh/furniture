@@ -5,22 +5,30 @@ import { useParams } from "react-router-dom";
 import "../Style/Commonsection.css";
 import Helmet from "../Conponents/Helmet/Helmet";
 import Commomsection from "./Commomsection";
-import products from "../data/products";
+// import products from "../data/products";
 import { motion } from "framer-motion";
 import "../Style/productDetail.css";
 import ProductList from "../MUI/ProductList";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../Config/ReduxStore/CardStore";
 import { toast } from "react-toastify";
+import { getIdData } from "../Config/firebase";
+import useGetData from "../custom/useGetData";
 
 const ProductDetail = () => {
   const [detail, setDetail] = useState("desc");
   const [rat, setRat] = useState(null);
   const userReview = useRef("");
   const userReviwMsg = useRef("");
+  const [details, setDetails] = useState("");
+  const{data: products} = useGetData("products")
 
+  useEffect(() => {
+    productItem()
+  },[]);
   const { id } = useParams();
   const productItem = products.find((item) => item.id === id);
+
   const {
     productName,
     category,
@@ -32,18 +40,18 @@ const ProductDetail = () => {
     avgRating,
   } = productItem;
   const relatedProduct = products.filter((item) => item.category === category);
-  const submitHandler = (e) => {
-    e.preventDefault();
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
 
-    const reviewUserName = userReview.current.value;
-    const reviewUserMsg = userReviwMsg.current.value;
-    const reveiwObj = {
-      userName: reviewUserName,
-      userMsg: reviewUserMsg,
-      rating: rat,
-    };
-    toast.success("Reveiw Submitted");
-  };
+  //   const reviewUserName = userReview.current.value;
+  //   const reviewUserMsg = userReviwMsg.current.value;
+  //   const reveiwObj = {
+  //     userName: reviewUserName,
+  //     userMsg: reviewUserMsg,
+  //     rating: rat,
+  //   };
+  //   toast.success("Reveiw Submitted");
+  // };
   const dispatch = useDispatch();
   const addToCard = () => {
     dispatch(
@@ -160,7 +168,7 @@ const ProductDetail = () => {
                           {" "}
                           <q> please share your valuable experience with us </q>
                         </h4>
-                        <form action="post" onSubmit={submitHandler}>
+                        {/* <form action="post" onSubmit={submitHandler}>
                           <div className="form_group">
                             <input
                               type="text"
@@ -212,7 +220,7 @@ const ProductDetail = () => {
                           <button type="submit" required className="buy_btn1">
                             Submit
                           </button>
-                        </form>
+                        </form> */}
                       </div>
                     </div>
                   </div>

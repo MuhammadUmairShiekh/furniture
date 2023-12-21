@@ -4,25 +4,17 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import {
-  getFirestore,
-  addDoc,
-  collection,
-  collectionRef,
-  getDoc,
-  getDocs,
-  onSnapshot,
-} from "firebase/firestore";
+import { getFirestore, addDoc, collection, getDocs , getDoc , doc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { toast } from "react-toastify";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDizz-lVl0ha-JNrP5ZmbKfKqDgae7TH4k",
-  authDomain: "furniture-94378.firebaseapp.com",
-  projectId: "furniture-94378",
-  storageBucket: "furniture-94378.appspot.com",
-  messagingSenderId: "571476083714",
-  appId: "1:571476083714:web:2a59b612885828f874131b",
+  apiKey: "AIzaSyDmzpuq6TB2yQ4Mzu8n8bDyWuwABkK9LEM",
+  authDomain: "dreamfurniture-5c555.firebaseapp.com",
+  projectId: "dreamfurniture-5c555",
+  storageBucket: "dreamfurniture-5c555.appspot.com",
+  messagingSenderId: "317377479609",
+  appId: "1:317377479609:web:7fc5f93b4193171a316c68",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -108,24 +100,23 @@ async function userData() {
 
   return Users;
 }
-const restro_data1 = [
+// const restro_data1 = [];
+// function postRestaurants() {
+//   try {
+//     for (var i = 0; i < restro_data1.length; i++) {
+//       addDoc(collection(db, "products"), restro_data1[i]);
+//     }
+//   } catch (e) {
+//     alert(e.message);
+//   }
+// }
 
-]
-function postRestaurants() {
-  try {
-    for (var i = 0; i < restro_data1.length; i++) {
-      addDoc(collection(db, "products"), restro_data1[i]);
-    }
-  } catch (e) {
-    alert(e.message);
-  }
+async function getIdData(id) {
+  const docRef = doc(db, "products", id);
+  const docSnap = await getDoc(docRef);
+  return docSnap.data();
+
+  // console.log(docSnap.data());
 }
 
-export {
-  register,
-  loginUser,
-  addProductList,
-  getData,
-  userData,
-  postRestaurants,
-};
+export { register, loginUser, addProductList, getData, userData, getIdData };
