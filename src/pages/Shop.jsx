@@ -5,13 +5,16 @@ import Helmet from "../Conponents/Helmet/Helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import "../Style/Shop.css";
 import { useState } from "react";
+import products from '../data/products'
 import ProductList from "../MUI/ProductList";
 import useGetData from "../custom/useGetData";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 
 const Shop = () => {
-  const { data: products } = useGetData("products");
+  const { data: products, loading } = useGetData("products");
   const [productList, setProductList] = useState(products);
-
+// const [loading , setLoading] = useState(false)
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === "sofa") {
@@ -95,13 +98,23 @@ const Shop = () => {
         <section>
           <Container>
             <Row>
-              <Col>
-                {productList.length === 0 ? (
-                  <h1 className="text-center fs-4">Product Not Found! ☹</h1>
-                ) : (
-                  <ProductList data={productList} />
-                )}
-              </Col>
+              {loading ? (
+                <Box sx={{ width: 600 }}>
+                  <Skeleton />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation={false} />
+                </Box>
+              ) : (
+                <Col>
+                  {productList.length === 0 ? (
+                    <h1 className="text-center fs-4">Product Not Found! ☹</h1>
+                  ) : (
+                    <ProductList data={productList} />
+                  )}
+                </Col>
+              )}
             </Row>
           </Container>
         </section>

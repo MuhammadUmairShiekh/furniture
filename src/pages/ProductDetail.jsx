@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import "../Style/Commonsection.css";
 import Helmet from "../Conponents/Helmet/Helmet";
 import Commomsection from "./Commomsection";
-// import products from "../data/products";
+import products from "../data/products";
 import { motion } from "framer-motion";
 import "../Style/productDetail.css";
 import ProductList from "../MUI/ProductList";
@@ -18,17 +18,23 @@ import useGetData from "../custom/useGetData";
 const ProductDetail = () => {
   const [detail, setDetail] = useState("desc");
   const [rat, setRat] = useState(null);
-  const userReview = useRef("");
-  const userReviwMsg = useRef("");
+  // const userReview = useRef("");
+  // const userReviwMsg = useRef("");
   const [details, setDetails] = useState("");
-  const{data: products} = useGetData("products")
+  const [product, setProduct] = useState({});
+  const { data: products } = useGetData("products");
 
   useEffect(() => {
-    productItem()
-  },[]);
-  const { id } = useParams();
-  const productItem = products.find((item) => item.id === id);
+    getProduct();
+  }, []);
 
+  const { id } = useParams();
+
+  // const productItem = products.find((item) => item.id === id);
+  const getProduct = async () => {
+    const productId = await getIdData(id);
+    setProduct(productId);
+  };
   const {
     productName,
     category,
@@ -36,9 +42,9 @@ const ProductDetail = () => {
     price,
     shortDesc,
     description,
-    reviews,
+    // reviews,
     avgRating,
-  } = productItem;
+  } = product;
   const relatedProduct = products.filter((item) => item.category === category);
   // const submitHandler = (e) => {
   //   e.preventDefault();
@@ -66,8 +72,8 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [products]);
+    // window.scrollTo(3,0);
+  },[products]);
 
   return (
     <>
@@ -83,7 +89,7 @@ const ProductDetail = () => {
                 <div className="product_detail">
                   <h1>{productName}</h1>
                   <div className="product_rating  d-flex align-item-center gap-4 mb-4">
-                    <div>
+                    {/* <div>
                       <span>
                         <i class="ri-star-s-fill"></i>
                       </span>
@@ -99,10 +105,10 @@ const ProductDetail = () => {
                       <span>
                         <i class="ri-star-half-s-line"></i>
                       </span>
-                    </div>
-                    <p>
+                    </div> */}
+                    {/* <p>
                       (<span>{avgRating}</span> Rating)
-                    </p>
+                    </p> */}
                   </div>
                   <span className="product_price">{`Rs:  ${price}`}</span>
                   <p className="mt-4">{shortDesc}</p>
@@ -130,7 +136,7 @@ const ProductDetail = () => {
                     onClick={() => setDetail('rev')}>
                     Reveiws ({reviews.length})</h5>
                 </div> */}
-                <div className="tab_wrapper d-flex align-item-center gap-5 mb-4">
+                {/* <div className="tab_wrapper d-flex align-item-center gap-5 mb-4">
                   <h5
                     className={`${detail === "desc" ? "active_tab" : ""}`}
                     onClick={() => setDetail("desc")}
@@ -143,8 +149,8 @@ const ProductDetail = () => {
                   >
                     Reviews ({reviews.length})
                   </h5>
-                </div>
-
+                </div> */}
+                <h4>Description</h4>
                 {detail === "desc" ? (
                   <div className="tab_content mt-5">
                     <p> {description}</p>
@@ -152,7 +158,7 @@ const ProductDetail = () => {
                 ) : (
                   <div className="product_reveiw mt-5">
                     <div className="review_wrapper">
-                      <ul>
+                      {/* <ul>
                         {reviews.map((item, indes) => {
                           return (
                             <li key={indes}>
@@ -162,12 +168,12 @@ const ProductDetail = () => {
                             </li>
                           );
                         })}
-                      </ul>
+                      </ul> */}
                       <div className="reveiw_form">
-                        <h4 className="mb-3">
+                        {/* <h4 className="mb-3">
                           {" "}
                           <q> please share your valuable experience with us </q>
-                        </h4>
+                        </h4> */}
                         {/* <form action="post" onSubmit={submitHandler}>
                           <div className="form_group">
                             <input
