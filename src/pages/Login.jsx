@@ -3,7 +3,7 @@ import Helmet from "../Conponents/Helmet/Helmet";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import "../Style/Login.css";
-import { loginUser } from "../Config/firebase";
+import { loginUser, auth, provider  , provider1} from "../Config/firebase";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
@@ -19,12 +19,14 @@ import IconButton from "@mui/material/IconButton";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import MailIcon from "@mui/icons-material/Mail";
+import { signInWithPopup, getRedirectResult } from "firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
   const signIN = async (e) => {
     e.preventDefault();
@@ -50,6 +52,37 @@ const Login = () => {
       }
     }
   };
+
+  const handleGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        setLoading(true);
+        setUser(user);
+        navigate("/CheckOutpage");
+        toast.success("Logged Successfully");
+      })
+      .catch((e) => {
+        setLoading(false);
+        toast.error(e.message);
+      });
+  };
+
+  const handleFaceBook = () => {
+    signInWithPopup(auth, provider1)
+      .then((result) => {
+        const user = result.user;
+        setLoading(true);
+        setUser(user);
+        navigate("/CheckOutpage");
+        toast.success("Logged Successfully");
+      })
+      .catch((e) => {
+        setLoading(false);
+        toast.error(e.message);
+      });
+  };
+  
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -157,10 +190,10 @@ const Login = () => {
                     </FormControl>
                     <button className="buy_btn3 auth_btn">Login</button>
                     <span className="btn1">
-                      <FacebookLoginButton onClick={() => alert("Hello")}>
+                      <FacebookLoginButton onClick={() => handleFaceBook()}>
                         <span>Log in with Facebook</span>
                       </FacebookLoginButton>
-                      <GoogleLoginButton onClick={() => alert("Hello")}>
+                      <GoogleLoginButton onClick={() => handleGoogle()}>
                         <span>Log in with Google</span>
                       </GoogleLoginButton>
                     </span>

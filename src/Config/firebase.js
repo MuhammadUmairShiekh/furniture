@@ -3,11 +3,14 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+   GoogleAuthProvider,
+   FacebookAuthProvider,
+   signInWithPopup   
 } from "firebase/auth";
 import { getFirestore, addDoc, collection, getDocs , getDoc , doc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { toast } from "react-toastify";
-
+// https://dreamfurniture-5c555.firebaseapp.com/__/auth/handler
 const firebaseConfig = {
   apiKey: "AIzaSyDmzpuq6TB2yQ4Mzu8n8bDyWuwABkK9LEM",
   authDomain: "dreamfurniture-5c555.firebaseapp.com",
@@ -21,6 +24,14 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 const storage = getStorage(app);
+
+export const provider = new GoogleAuthProvider()
+export const provider1 = new FacebookAuthProvider()
+
+// export const FaceBookAuth = async () => {
+//   const provider1 = signInWithPopup (auth, faceBook)
+//   return provider1
+// } 
 
 async function register(email, pass, firtName, lastName, file) {
   try {

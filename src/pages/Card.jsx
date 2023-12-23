@@ -13,7 +13,6 @@ import { NavLink } from 'react-router-dom'
 const Card = () => {
   const cartItem = useSelector((state) => state.cart.cartItem)
   const totalAmount = useSelector((state) => state.cart.totalAmount)
-  console.log(cartItem)
   return (
     <>
       <Helmet title={"Dream Furniture Card"} >

@@ -116,6 +116,9 @@ const Header = () => {
               <div className="nav_icon">
                 <span className="userName">
                   {!currentUser ? " " : currentUser.email}
+                    {
+                      console.log(currentUser)
+                    }
                 </span>
                 <span className="fav_icon">
                   <i class="ri-heart-line"></i>
