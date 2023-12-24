@@ -10,7 +10,6 @@ import { auth } from "../Config/firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
-import PrimarySearchAppBar from "./textNavber";
 
 
 const AdminNav = () => {
