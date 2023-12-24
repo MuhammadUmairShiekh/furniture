@@ -3,13 +3,12 @@ import cartSlice from "./CardStore";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     cart: cartSlice,
   },
 });
 
-export default store;
 
 // const persistConfig = {
 //   key: "root",
@@ -22,4 +21,4 @@ export default store;
 //   reducer: persistedReducer,
 // });
 
-// export const persister = persistStore(store);
+// export const persistor = persistStore(store);

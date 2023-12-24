@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "./Header.css";
-import { Container, Row } from "reactstrap";
+import { Container, Row } from "react-bootstrap";
 import logo from "../../images/eco-logo.png";
 import User from "../../images/user-icon.png";
 import { motion } from "framer-motion";
@@ -11,6 +11,9 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../Config/firebase";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+
+
+
 
 const Header = () => {
   const navigate = useNavigate();
@@ -72,16 +75,18 @@ const Header = () => {
   };
   useEffect(() => {
     stickyHeader();
-    // return () => window.removeEventListener("scroll", stickyHeader)
   }, []);
 
   const muneToggle = () => menuRef.current.classList.toggle("active_menu");
 
   const togglePofile = () =>
     profileActionref.current.classList.toggle("show_profileAction");
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <>
-      <header className="header" ref={headerRef}>
+      <header ref={headerRef} className="header">
         <Container>
           <Row>
             <div className="nav_wrapper">
@@ -116,9 +121,7 @@ const Header = () => {
               <div className="nav_icon">
                 <span className="userName">
                   {!currentUser ? " " : currentUser.email}
-                    {
-                      console.log(currentUser)
-                    }
+                  {console.log(currentUser)}
                 </span>
                 <span className="fav_icon">
                   <i class="ri-heart-line"></i>
@@ -147,7 +150,6 @@ const Header = () => {
                     ) : (
                       <div className="lists d-flex  align-items-center justify-content-center flex-column">
                         <NavLink to={"/SignUp"}>signUp</NavLink>
-
                         <NavLink to={"/login"}>Login</NavLink>
                       </div>
                     )}

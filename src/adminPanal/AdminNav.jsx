@@ -10,7 +10,8 @@ import { auth } from "../Config/firebase";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
-import MiniDrawer from "./textNavber";
+import PrimarySearchAppBar from "./textNavber";
+
 
 const AdminNav = () => {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ const AdminNav = () => {
   ];
   return (
     <>
-      {/* <MiniDrawer /> */}
+      {/* <PrimarySearchAppBar /> */}
       <header className="admin_header">
         <div className="admin_top_Nav">
           <Container>
@@ -77,13 +78,13 @@ const AdminNav = () => {
                   </h5> */}
                 </div>
               </div>
-              <div className="search_box">
+              {/* <div className="search_box">
                 <input type="text" placeholder="Search Here......" />
 
                 <span>
                   <i class="ri-search-line"></i>
                 </span>
-              </div>
+              </div> */}
               <div className="admin_nav_top_right">
                 <span>
                   <i class="ri-notification-2-fill"></i>
@@ -136,7 +137,7 @@ const AdminNav = () => {
                       >
                         {item.display}
                       </NavLink>
-                    </li>
+                    </li> 
                   );
                 })}
               </ul>
