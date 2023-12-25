@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import "../Style/productDetail.css";
 import ProductList from "../MUI/ProductList";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../Config/ReduxStore/CardStore";
+import { cartActions } from '../ReduxStore/CardStore'
 import { toast } from "react-toastify";
 import { getIdData } from "../Config/firebase";
 import useGetData from "../custom/useGetData";

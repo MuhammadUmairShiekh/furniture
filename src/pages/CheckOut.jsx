@@ -7,8 +7,8 @@ import '../Style/Checkout.css'
 import { useSelector } from 'react-redux'
 
 const CheckOut = () => {
-  const totalQty = useSelector((state) => state.cart.totalQty)
-  const totalAmount = useSelector((state) => state.cart.totalAmount)
+  const totalQty = useSelector((state) => state.cart)
+  const totalAmount = useSelector((state) => state.cart)
 
 
 

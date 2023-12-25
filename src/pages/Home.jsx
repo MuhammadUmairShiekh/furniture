@@ -14,10 +14,10 @@ import useGetData from "../custom/useGetData";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 import Loading from "./Loading";
-import products from "../data/products";
+// import products from "../data/products";
 
 const Home = () => {
-  // const { data: products } = useGetData("products");
+  const { data: products } = useGetData("products");
   const [trending, setTrending] = useState([]);
   const [bestProduct, setBestProduct] = useState([]);
   const { scrollYProgress } = useScroll();

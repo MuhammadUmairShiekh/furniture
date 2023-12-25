@@ -12,9 +12,9 @@ import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 
 const Shop = () => {
-  // const { data: products, loading } = useGetData("products");
+  const { data: products, loading } = useGetData("products");
   const [productList, setProductList] = useState(products);
-const [loading , setLoading] = useState(false)
+// const [loading , setLoading] = useState(false)
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === "sofa") {

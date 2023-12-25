@@ -1,17 +1,17 @@
 import Layout from "./Conponents/Layout/Layout";
 import "./App.css";
 // import store from "./Config/ReduxStore/Store";
-import { store } from "./Config/ReduxStore/index";
-import { Provider } from "react-redux";
+// import { store } from "./adminPanal/ReduxStore";
+// import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Router from "../src/Config/router";
-import { PersistGate } from "redux-persist/integration/react";
+// import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   return (
     <>
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
         {/* <PersistGate loading={null} persistor={persistor}> */}
           <div className="toasty">
             <ToastContainer
@@ -28,7 +28,7 @@ function App() {
           </div>
           <Router />
         {/* </PersistGate> */}
-      </Provider>
+      {/* </Provider> */}
     </>
   );
 }

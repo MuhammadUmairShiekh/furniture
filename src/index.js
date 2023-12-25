@@ -4,13 +4,21 @@ import "remixicon/fonts/remixicon.css";
 import "bootstrap/dist/css/bootstrap.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { store , persistor } from './ReduxStore';
+import { PersistGate } from 'redux-persist/integration/react';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
+
+  <Provider store={store}>
+    <PersistGate persistor={persistor} >    
+   <React.StrictMode>
     <App />
-  // </React.StrictMode>
+   </React.StrictMode>
+  </PersistGate>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

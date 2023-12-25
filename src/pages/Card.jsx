@@ -6,13 +6,13 @@ import { Container, Row, Col } from 'reactstrap'
 // import text from '../images/arm-chair-03.jpg'
 import '../Style/Card.css'
 import { motion } from 'framer-motion'
-import { cartActions } from '../Config/ReduxStore/CardStore'
+import { cartActions } from '../ReduxStore/CardStore'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 const Card = () => {
-  const cartItem = useSelector((state) => state.cart.cartItem)
-  const totalAmount = useSelector((state) => state.cart.totalAmount)
+  const cartItem = useSelector((state) => state.cart)
+  const totalAmount = useSelector((state) => state.cart)
   return (
     <>
       <Helmet title={"Dream Furniture Card"} >
@@ -22,7 +22,7 @@ const Card = () => {
             <Row>
               <Col lg='9'>
                 {
-                  cartItem.length === 0 ? (<h1 className='empty'  >Your cart is empty ☹ !</h1>
+                  "cartItem.length" === 0 ? (<h1 className='empty'  >Your cart is empty ☹ !</h1>
                   ) : (
                     <table className='table bordered'>
                       <thead>
@@ -36,11 +36,11 @@ const Card = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {
+                        {/* {
                           cartItem.map((item, index) => (
                             <Tr item={item} key={index} />
                           ))
-                        }
+                        } */}
                       </tbody>
                     </table>
                   )

@@ -5,7 +5,7 @@ import {
   createUserWithEmailAndPassword,
    GoogleAuthProvider,
    FacebookAuthProvider,
-   signInWithPopup   
+      
 } from "firebase/auth";
 import { getFirestore, addDoc, collection, getDocs , getDoc , doc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";

@@ -5,7 +5,7 @@ import { Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../Config/ReduxStore/CardStore";
+import { cartActions } from "../ReduxStore/CardStore";
 import { toast } from "react-toastify";
 
 

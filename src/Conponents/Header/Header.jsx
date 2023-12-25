@@ -12,9 +12,6 @@ import { auth } from "../../Config/firebase";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
-
-
-
 const Header = () => {
   const navigate = useNavigate();
   const { currentUser } = UseAuth();
@@ -42,7 +39,7 @@ const Header = () => {
       }
     });
   };
-  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const total = useSelector((state) => state.cart);
   const nav_link = [
     {
       path: "/",
@@ -81,14 +78,13 @@ const Header = () => {
 
   const togglePofile = () =>
     profileActionref.current.classList.toggle("show_profileAction");
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
   return (
     <>
       <header ref={headerRef} className="header">
-        <Container>
-          <Row>
+        <div>
+          <Container>
+            {/* <Row> */}
             <div className="nav_wrapper">
               <div className="logo">
                 <motion.img whileTap={{ scale: 1.2 }} src={logo} alt="" />
@@ -130,7 +126,7 @@ const Header = () => {
                 <span className="card_icon" onClick={navigateToCart}>
                   <i class="ri-shopping-bag-line"></i>
 
-                  <span className="badge">{totalQuantity}</span>
+                  <span className="badge">{total}</span>
                 </span>
                 <div className="profile">
                   <motion.img
@@ -163,8 +159,9 @@ const Header = () => {
                 </div>
               </div>
             </div>
-          </Row>
-        </Container>
+            {/* </Row> */}
+          </Container>
+        </div>
         <Outlet />
       </header>
     </>
