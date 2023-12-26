@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 
 const Shop = () => {
-  const { data: products, loading } = useGetData("products");
+  const { data: products } = useGetData("products");
   const [productList, setProductList] = useState(products);
 // const [loading , setLoading] = useState(false)
   const handleFilter = (e) => {
@@ -98,7 +98,7 @@ const Shop = () => {
         <section>
           <Container>
             <Row>
-              {loading ? (
+              {!products.length ? (
                 <Box sx={{ width: 600 }}>
                   <Skeleton />
                   <Skeleton animation="wave" />

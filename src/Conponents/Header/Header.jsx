@@ -39,7 +39,9 @@ const Header = () => {
       }
     });
   };
-  const total = useSelector((state) => state.cart);
+  const total = useSelector((state) => state.totalQuantity);
+
+  console.log(total)
   const nav_link = [
     {
       path: "/",
