@@ -51,14 +51,14 @@ const CheckOut = () => {
                 </h6>
                 <h6>
                   <span>
-                    {totalAmount > 5000 ? "Shipping Charges" : "Free Shipping"}
+                    {totalAmount > 30000 ? "Shipping Charges" : "Free Shipping"}
                   </span>
 
-                  <span>{totalAmount > 5000 ? "PKR " + 1100 : " "}</span>
+                  <span>{totalAmount > 30000 ? "PKR " + 1100 : " "}</span>
                 </h6>
                 <h6>
-                  <span>Sale Tax 17%:</span>
-                  <span>PKR {(totalAmount * 17) / 100}</span>
+                  <span>Sale Tax 18%:</span>
+                  <span>PKR {(totalAmount * 18) / 100}</span>
                 </h6>
                 <h3>
                   {" "}
@@ -66,8 +66,8 @@ const CheckOut = () => {
                   <span>
                     PKR{" "}
                     {Math.floor(
-                      (totalAmount * 17) / 100 + totalAmount,
-                      totalAmount > 5000 ? "PKR" + 1100 : " "
+                      (totalAmount * 18) / 100 + totalAmount,
+                      totalAmount > 30000 ? "PKR" + 1100 : " "
                     )}
                   </span>
                 </h3>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Helmet from "../Conponents/Helmet/Helmet";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate ,  Navigate } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import { motion, useScroll } from "framer-motion";
 import HeroImg from "../../src/images/pngegg.png";
@@ -14,13 +14,14 @@ import useGetData from "../custom/useGetData";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 import Loading from "./Loading";
+import Login from "./Login";
 // import products from "../data/products";
 
 const Home = () => {
   const { data: products } = useGetData("products");
   const [trending, setTrending] = useState([]);
   const [bestProduct, setBestProduct] = useState([]);
-  const { scrollYProgress } = useScroll();
+  const navigate = useNavigate()
   const year = new Date().getFullYear();
   useEffect(() => {
     const filterTrendingProduct = products.filter(
@@ -33,6 +34,13 @@ const Home = () => {
     // setLoading(true);
     setBestProduct(filterBestProduct);
   }, [products]);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     navigate("/Login");
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <>
@@ -137,7 +145,7 @@ const Home = () => {
               <Col lg="6" md="12" className="count_down">
                 <motion.div
                   initial={{ opacity: 0 }}
-                  animate={{ x: [-  700, 0] }}
+                  animate={{ x: [-700, 0] }}
                   transition={{
                     duration: 1.1,
                     ease: "easeOut",

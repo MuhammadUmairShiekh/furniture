@@ -72,7 +72,7 @@ export const cartSlice = createSlice({
           productName: newItem.productName,
           imgUrl: newItem.imgUrl,
           price: newItem.price,
-          quantity: 1, // Initialize quantity to 1 for a new item
+          quantity: -1, // Initialize quantity to 1 for a new item
           totalPrice: newItem.price,
         });
       } else {
