@@ -119,7 +119,7 @@ const Header = () => {
               <div className="nav_icon">
                 <span className="userName">
                   {!currentUser ? " " : currentUser.email}
-                  {console.log(currentUser)}
+                  {/* {console.log(currentUser)} */}
                 </span>
                 <span className="fav_icon">
                   <i class="ri-heart-line"></i>
@@ -128,7 +128,7 @@ const Header = () => {
                 <span className="card_icon" onClick={navigateToCart}>
                   <i class="ri-shopping-bag-line"></i>
 
-                  <span className="badge">{total}</span>
+                  <span className="badge">{total - 1}</span>
                 </span>
                 <div className="profile">
                   <motion.img

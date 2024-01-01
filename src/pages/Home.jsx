@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Helmet from "../Conponents/Helmet/Helmet";
-import { NavLink, useNavigate ,  Navigate } from "react-router-dom";
+import { NavLink, useNavigate, Navigate } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import { motion, useScroll } from "framer-motion";
 import HeroImg from "../../src/images/pngegg.png";
@@ -14,14 +14,14 @@ import useGetData from "../custom/useGetData";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 import Loading from "./Loading";
-import Login from "./Login";
+import Swal from "sweetalert2";
 // import products from "../data/products";
 
 const Home = () => {
   const { data: products } = useGetData("products");
   const [trending, setTrending] = useState([]);
   const [bestProduct, setBestProduct] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const year = new Date().getFullYear();
   useEffect(() => {
     const filterTrendingProduct = products.filter(
@@ -35,12 +35,20 @@ const Home = () => {
     setBestProduct(filterBestProduct);
   }, [products]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     navigate("/Login");
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      Swal.fire({
+        title: "Dream Furniture ",
+        text: "Best Product Limited Time Offer",
+        imageUrl: "https://unsplash.it/400/200",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image",
+      });
+    }, 5000);
+    
+        clearInterval(interval);
+  }, []);
 
   return (
     <>
@@ -104,13 +112,13 @@ const Home = () => {
             </Row>
           </Container>
         </section>
-        <Service />
+        {/* <Service /> */}
 
         <section className="trending_product">
           <Container>
             <Row>
               <Col lg="12" className="text-center">
-                <h2 className="section_title">Trending Products</h2>
+                <h2 className="section_title mb-4">Trending Products</h2>
               </Col>
               {/* <span className="text-center"> */}
               {!products.length ? (

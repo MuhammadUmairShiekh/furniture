@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
 import Helmet from "../Conponents/Helmet/Helmet";
 import Commomsection from "./Commomsection";
 import Footer from "../Conponents/Footer/Footer";
 import "../Style/Checkout.css";
 import { useSelector } from "react-redux";
+import UseAuth from "../custom/UseAuth";
 
 const CheckOut = () => {
   const totalQty = useSelector((state) => state.totalQuantity);
   const totalAmount = useSelector((state) => state.totalAmount);
+  const { currentUser } = UseAuth();
+  const [cusName, setCusName] = useState("");
+  const [cusEmail, setCusEmail] = useState("");
+  const [cusNumber, setNumber] = useState("");
+  const [cusAddress, setCusAddres] = useState("");
+  const [cusCity, setCusCity] = useState("");
+  const [cusPostCode, setCusPostCode] = useState("");
 
+  const orderPlace = () => {
+    alert("Your Order Place Successfuly");
+  };
   return (
     <>
       <Helmet title={"Dream Furniture  CheckOut"}>
@@ -20,10 +31,20 @@ const CheckOut = () => {
               <h6 className="mt-4 mb-4 fw-bold "> Billing Information</h6>
               <Form className="billing_form">
                 <FormGroup className="form_group">
-                  <input type="text" placeholder="Enter Your Name" />
+                  <input
+                    onChange={(e) => setCusName(e.target.value)}
+                    value={cusName}
+                    type="text"
+                    placeholder="Enter Your Name"
+                  />
                 </FormGroup>
                 <FormGroup className="form_group">
-                  <input type="email" placeholder="Enter Your Email" />
+                  <input
+                    type="email"
+                    value={!currentUser ? "" : currentUser.email}
+                    placeholder="Enter Your Email"
+                    onChange={(e) => setCusEmail(e.target.value)}
+                  />
                 </FormGroup>
                 <FormGroup className="form_group">
                   <input type="text" placeholder="Enter Your Number" />
@@ -38,12 +59,13 @@ const CheckOut = () => {
                   <input type="text" placeholder="Post Code" />
                 </FormGroup>
               </Form>
+              {/* <h3>Please Fill The Form CareFully</h3> */}
             </Col>
             <Col lg="4">
               <div className="checkOut_Card">
                 <h6>
                   {" "}
-                  Total Qty: <span>{totalQty} Items</span>
+                  Total Qty: <span>{totalQty - 1} Items</span>
                 </h6>
                 <h6>
                   {" "}
@@ -71,7 +93,9 @@ const CheckOut = () => {
                     )}
                   </span>
                 </h3>
-                <button className="buy_btn3 auth_btn">Place Your Order</button>
+                <button onClick={orderPlace} className="buy_btn3 auth_btn">
+                  Place Your Order
+                </button>
               </div>
             </Col>
           </Row>

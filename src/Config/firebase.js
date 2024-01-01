@@ -127,7 +127,27 @@ async function getIdData(id) {
   const docSnap = await getDoc(docRef);
   return docSnap.data();
 
-  // console.log(docSnap.data());
+}
+
+async function order(email, pass, firtName, lastName, file) {
+  try {
+    await createUserWithEmailAndPassword(
+      auth,
+      email,
+      pass,
+      firtName,
+      lastName,
+      file
+    );
+    await addDoc(collection(db, "users"), {
+      displayName: firtName,
+      lastName,
+      email,
+    });
+    toast.success("Acct Created");
+  } catch (e) {
+    toast.error(e.message);
+  }
 }
 
 export { register, loginUser, addProductList, getData, userData, getIdData };
