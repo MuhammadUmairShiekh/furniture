@@ -17,9 +17,11 @@ const CheckOut = () => {
   const [cusAddress, setCusAddres] = useState("");
   const [cusCity, setCusCity] = useState("");
   const [cusPostCode, setCusPostCode] = useState("");
+  const [total, setTotal] = useState("");
 
   const orderPlace = () => {
-    alert("Your Order Place Successfuly");
+    console.log(totalQty);
+    console.log((totalAmount * 18 / 100) + totalAmount);
   };
   return (
     <>
@@ -47,16 +49,36 @@ const CheckOut = () => {
                   />
                 </FormGroup>
                 <FormGroup className="form_group">
-                  <input type="text" placeholder="Enter Your Number" />
+                  <input
+                    onChange={(e) => setNumber(e.target.value)}
+                    value={cusNumber}
+                    type="text"
+                    placeholder="Enter Your Number"
+                  />
                 </FormGroup>
                 <FormGroup className="form_group">
-                  <input type="text" placeholder="Street Address" />
+                  <input
+                    onChange={(e) => setCusAddres(e.target.value)}
+                    value={cusAddress}
+                    type="text"
+                    placeholder="Street Address"
+                  />
                 </FormGroup>
                 <FormGroup className="form_group">
-                  <input type="text" placeholder="City" />
+                  <input
+                    onChange={(e) => setCusCity(e.target.value)}
+                    value={cusCity}
+                    type="text"
+                    placeholder="City"
+                  />
                 </FormGroup>
                 <FormGroup className="form_group">
-                  <input type="text" placeholder="Post Code" />
+                  <input
+                    onChange={(e) => setCusPostCode(e.target.value)}
+                    value={cusPostCode}
+                    type="text"
+                    placeholder="Post Code"
+                  />
                 </FormGroup>
               </Form>
               {/* <h3>Please Fill The Form CareFully</h3> */}
@@ -65,7 +87,7 @@ const CheckOut = () => {
               <div className="checkOut_Card">
                 <h6>
                   {" "}
-                  Total Qty: <span>{totalQty - 1} Items</span>
+                  Total Qty: <span>{totalQty} Items</span>
                 </h6>
                 <h6>
                   {" "}
@@ -76,7 +98,7 @@ const CheckOut = () => {
                     {totalAmount > 30000 ? "Shipping Charges" : "Free Shipping"}
                   </span>
 
-                  <span>{totalAmount > 30000 ? "PKR " + 1100 : " "}</span>
+                  <span>{totalAmount > 80000 ? "PKR " + 1100 : " "}</span>
                 </h6>
                 <h6>
                   <span>Sale Tax 18%:</span>
@@ -88,8 +110,8 @@ const CheckOut = () => {
                   <span>
                     PKR{" "}
                     {Math.floor(
-                      (totalAmount * 18) / 100 + totalAmount,
-                      totalAmount > 30000 ? "PKR" + 1100 : " "
+                      (totalAmount * 18 / 100) + totalAmount +
+                      (totalAmount > 80000 ? + 1100 : 0)
                     )}
                   </span>
                 </h3>

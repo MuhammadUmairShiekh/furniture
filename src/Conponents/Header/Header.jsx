@@ -41,7 +41,7 @@ const Header = () => {
   };
   const total = useSelector((state) => state.totalQuantity);
 
-  console.log(total)
+  // console.log(total);
   const nav_link = [
     {
       path: "/",
@@ -128,16 +128,17 @@ const Header = () => {
                 <span className="card_icon" onClick={navigateToCart}>
                   <i class="ri-shopping-bag-line"></i>
 
-                  <span className="badge">{total - 1}</span>
+                  <span className="badge">{total}</span>
                 </span>
                 <div className="profile">
                   <motion.img
                     whileTap={{ scale: 1.3 }}
+                    // src={!currentUser ? " " : currentUser.photoURL}  
                     src={User}
                     alt="user"
                     onClick={togglePofile}
                   />
-
+                  {/* {console.log(currentUser)} */}
                   <div
                     className="profile_actions "
                     ref={profileActionref}
