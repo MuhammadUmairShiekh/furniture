@@ -1,41 +1,98 @@
-.table{
-    text-align: center !important;
-    border-bottom: 1px solid var(--primary);
-    /* width: 80%; */
+.table {
+  text-align: center !important;
+  border-bottom: 1px solid var(--primary);
+  /* width: 80%; */
 }
-.table th{
-    text-transform: uppercase;
-    
+.table th {
+  text-transform: uppercase;
 }
 .table tr {
-    line-height: 60px !important;
-    
+  line-height: 60px !important;
 }
-.table tr td img{
-    width: 80px !important;
-    height: 80px !important;
-    object-fit: contain !important;
+.table tr td img {
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: contain !important;
 }
 
 .table td span {
-    cursor: pointer !important;
-    
+  cursor: pointer !important;
 }
+h5 span {
+    font-size: 1.4rem !important;
+  }
 
 .buy_btn2 {
-    margin-top: .9rem;
-    font-weight: 600;
-    padding: -2px;
-    background-color: var(--primary-color);
-    margin: 5px;
-    /* background-color: lightgray; */
-    border-radius: 5px;
-    color: white;
-    width: 100%;
-    text-transform: capitalize;
-    height: 60px;
-    border: none;
-    outline: none;
-    transition: 0.7s all;
-    /* text-align: center; */
+  margin-top: 0.9rem;
+  font-weight: 600;
+  padding: -2px;
+  background-color: var(--primary-color);
+  margin: 5px;
+  /* background-color: lightgray; */
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  text-transform: capitalize;
+  height: 60px;
+  border: none;
+  outline: none;
+  transition: 0.7s all;
+}
+
+@media only screen and (max-width: 768px) {
+  .table tr td img {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+  }
+  .table tr td {
+    font-size: 0.8rem !important;
+  }
+
+  .table tr {
+    line-height: 40px !important;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .table tr td img {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+  }
+  .table tr td {
+    font-size: 0.5rem !important;
+  }
+
+  .table tr th {
+    font-size: 0.7rem !important;
+  }
+  h5 span {
+    font-size: 0.8rem !important;
+  }
+
+  .table tr {
+    line-height: 30px !important;
+  }
+  .amount {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .table tr td img {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain !important;
+  }
+
+  .table tr {
+    line-height: 10px !important;
+  }
+  .table tr th {
+    font-size: 0.6rem !important;
+  }
+  .table tr td {
+    font-size: 0.5rem !important;
+  }
 }

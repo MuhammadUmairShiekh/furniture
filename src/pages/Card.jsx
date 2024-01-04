@@ -45,10 +45,10 @@ const Card = () => {
                 )}
               </Col>
               <Col lg="3">
-                <div className="mt-4 mb-4">
+                <div className="mt-4 mb-4 amount">
                   <h5 className="d-flex align-items-center justify-content-between">
                     Subtotal
-                    <span className="fs-4 fw-bold">Rs.{totalAmount}/-</span>
+                    <span className="fw-bold">Rs.{totalAmount}/-</span>
                   </h5>
                 </div>
                 <div>

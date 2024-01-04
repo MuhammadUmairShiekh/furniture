@@ -25,8 +25,9 @@ const User = () => {
     setLoading(true);
   };
   const deleteData = async (id) => {
-    await deleteDoc(doc(db, "ProductList", id));
+    await deleteDoc(doc(db, "users", id));
     toast.success("Data Delete");
+    
   };
   return (
     <>
@@ -59,7 +60,7 @@ const User = () => {
                   {data.map((item, index) => {
                     return (
                       <tr key={index}>
-                        <td>{item.firtName}</td>
+                        <td>{item.displayName}</td>
                         <td>{item.lastName}</td>
                         <td>{item.email}</td>
                         <td>

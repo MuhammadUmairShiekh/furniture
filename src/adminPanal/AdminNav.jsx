@@ -72,9 +72,9 @@ const AdminNav = () => {
               <div className="logo ">
                 <motion.img whileTap={{ scale: 1.2 }} src={logo} alt="" />
                 <div>
-                  {/* <h5>
-                    DREAM-FURNITURE <br /> Since 1999
-                  </h5> */}
+                  <h5>
+                    ADMIN_PANAL
+                  </h5>
                 </div>
               </div>
               {/* <div className="search_box">

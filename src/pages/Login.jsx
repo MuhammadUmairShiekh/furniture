@@ -34,7 +34,7 @@ const Login = () => {
       try {
         setLoading(true);
         await loginUser(email, pass);
-        navigate("/dashBoard");
+        navigate("/DashDordi");
         toast.success("Logging Admin Panel !");
       } catch (e) {
         setLoading(false);
