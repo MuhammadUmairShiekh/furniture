@@ -13,14 +13,15 @@ import Footer from "../Conponents/Footer/Footer";
 import useGetData from "../custom/useGetData";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
-import Loading from "./Loading";
 import Swal from "sweetalert2";
 // import products from "../data/products";
+import Counter from "../MUI/Counter";
 
 const Home = () => {
   const { data: products } = useGetData("products");
   const [trending, setTrending] = useState([]);
   const [bestProduct, setBestProduct] = useState([]);
+  const [bestTables, setBestTables] = useState([]);
   const navigate = useNavigate();
   const year = new Date().getFullYear();
   useEffect(() => {
@@ -30,25 +31,29 @@ const Home = () => {
     const filterBestProduct = products.filter(
       (item) => item.category === "sofa"
     );
+    const filterBestTable = products.filter(
+      (item) => item.category === "table"
+    );
     setTrending(filterTrendingProduct);
     // setLoading(true);
     setBestProduct(filterBestProduct);
+    setBestTables(filterBestTable);
   }, [products]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      Swal.fire({
-        title: "Dream Furniture ",
-        text: "Best Product Limited Time Offer",
-        imageUrl: "https://unsplash.it/400/200",
-        imageWidth: 400,
-        imageHeight: 200,
-        imageAlt: "Custom image",
-      });
-    }, 5000);
-    
-        clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     Swal.fire({
+  //       title: "Dream Furniture ",
+  //       text: "Best Product Limited Time Offer",
+  //       imageUrl: "https://unsplash.it/400/200",
+  //       imageWidth: 400,
+  //       imageHeight: 200,
+  //       imageAlt: "Custom image",
+  //     });
+  //   }, 5000);
+
+  //       clearInterval(interval);
+  // }, []);
 
   return (
     <>
@@ -122,7 +127,7 @@ const Home = () => {
               </Col>
               {/* <span className="text-center"> */}
               {!products.length ? (
-                <Box sx={{ width: 600 }}>
+                <Box className="Loder" sx={{ width: 1000 }}>
                   <Skeleton />
                   <Skeleton animation="wave" />
                   <Skeleton animation="wave" />
@@ -142,11 +147,26 @@ const Home = () => {
               <Col lg="12" className="text-center">
                 <h2 className="section_title">Best Sales</h2>
               </Col>
+
               <ProductList data={bestProduct} />
             </Row>
           </Container>
         </section>
-
+        <section>
+          <Container>
+            <Row>
+              <Col>
+                <div className="photo-profile">
+                  <div className="numbers">
+                    <Counter number={105} title="Clients" />
+                    <Counter number={5175} title="Followers" />
+                    <Counter number={468} title="Following" />
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </section>
         <section className="timer_count">
           <Container>
             <Row>
@@ -202,7 +222,7 @@ const Home = () => {
                 <h2 className="section_title">New Arrivals</h2>
               </Col>
               {!products.length ? (
-                <Box sx={{ width: 600 }}>
+                <Box className="Loder" sx={{ width: 1000 }}>
                   <Skeleton />
                   <Skeleton animation="wave" />
                   <Skeleton animation="wave" />
@@ -210,7 +230,7 @@ const Home = () => {
                   <Skeleton animation={false} />
                 </Box>
               ) : (
-                <ProductList data={bestProduct} />
+                <ProductList data={bestTables} />
               )}
             </Row>
           </Container>
@@ -222,7 +242,7 @@ const Home = () => {
                 <h2 className="section_title">Popular Category</h2>
               </Col>
               {!bestProduct.length ? (
-                <Box sx={{ width: 600 }}>
+                <Box className="Loder" sx={{ width: 1000 }}>
                   <Skeleton />
                   <Skeleton animation="wave" />
                   <Skeleton animation="wave" />

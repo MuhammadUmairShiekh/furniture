@@ -18,6 +18,7 @@ const AddProduct = () => {
   const [category, setProdCategory] = useState("");
   const [imgUrl, setProdImage] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
     clipPath: "inset(50%)",
@@ -63,7 +64,7 @@ const AddProduct = () => {
               //   <h6 className="fw-bold"> Loading.....</h6>
               // </Col>
 
-              <Box sx={{ width: 600 }}>
+              <Box className="Loder" sx={{ width: 1000 }}>
                 <Skeleton />
                 <Skeleton animation="wave" />
                 <Skeleton animation="wave" />

@@ -33,7 +33,7 @@ const AllProduct = () => {
       <Container>
         <Row>
           {!loading ? (
-            <Box sx={{ width: 600 }}>
+            <Box className="Loder" sx={{ width: 1000 }}>
               <Skeleton />
               <Skeleton animation="wave" />
               <Skeleton animation="wave" />

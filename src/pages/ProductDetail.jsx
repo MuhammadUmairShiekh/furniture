@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import "../Style/Commonsection.css";
 import Helmet from "../Conponents/Helmet/Helmet";
 import Commomsection from "./Commomsection";
-import products from "../data/products";
+// import products from "../data/products";
 import { motion } from "framer-motion";
 import "../Style/productDetail.css";
 import ProductList from "../MUI/ProductList";
@@ -43,7 +43,7 @@ const ProductDetail = () => {
     shortDesc,
     description,
     // reviews,
-    avgRating,
+    // avgRating,
   } = product;
   const relatedProduct = products.filter((item) => item.category === category);
   // const submitHandler = (e) => {
@@ -63,7 +63,7 @@ const ProductDetail = () => {
     dispatch(
       cartActions.addToStore({
         id,
-        image: imgUrl,
+        imgUrl: imgUrl,
         productName,
         price,
       })
@@ -72,7 +72,7 @@ const ProductDetail = () => {
   };
 
   useEffect(() => {
-    // window.scrollTo(3,0);
+    // window.scrollTo(0,0);
   },[products]);
 
   return (
@@ -170,17 +170,18 @@ const ProductDetail = () => {
                         })}
                       </ul> */}
                       <div className="reveiw_form">
-                        {/* <h4 className="mb-3">
+                        <h4 className="mb-3">
                           {" "}
                           <q> please share your valuable experience with us </q>
-                        </h4> */}
-                        {/* <form action="post" onSubmit={submitHandler}>
+                        </h4>
+                        {/* onSubmit={submitHandler} */}
+                        <form action="post">
                           <div className="form_group">
                             <input
                               type="text"
                               required
                               placeholder="  Enter Your Name"
-                              ref={userReview}
+                              // ref={userReview}
                             />
                           </div>
                           <div className="form_group d-flex align-item-center gap-4 rating_group">
@@ -220,13 +221,13 @@ const ProductDetail = () => {
                               type="text"
                               rows={5}
                               placeholder=" Reveiw Message...."
-                              ref={userReviwMsg}
+                              // ref={userReviwMsg}
                             />
                           </div>
                           <button type="submit" required className="buy_btn1">
                             Submit
                           </button>
-                        </form> */}
+                        </form>
                       </div>
                     </div>
                   </div>

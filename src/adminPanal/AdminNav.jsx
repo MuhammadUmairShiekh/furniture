@@ -11,7 +11,6 @@ import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 
-
 const AdminNav = () => {
   const navigate = useNavigate();
   const { currentUser } = UseAuth();
@@ -72,9 +71,7 @@ const AdminNav = () => {
               <div className="logo ">
                 <motion.img whileTap={{ scale: 1.2 }} src={logo} alt="" />
                 <div>
-                  <h5>
-                    ADMIN_PANAL
-                  </h5>
+                  <h5>ADMIN_PANAL</h5>
                 </div>
               </div>
               {/* <div className="search_box">
@@ -84,6 +81,9 @@ const AdminNav = () => {
                   <i class="ri-search-line"></i>
                 </span>
               </div> */}
+              <span className="userName fs-6">
+                {!currentUser ? " " : currentUser.email}
+              </span>
               <div className="admin_nav_top_right">
                 <span>
                   <i class="ri-notification-2-fill"></i>
@@ -136,7 +136,7 @@ const AdminNav = () => {
                       >
                         {item.display}
                       </NavLink>
-                    </li> 
+                    </li>
                   );
                 })}
               </ul>

@@ -99,7 +99,7 @@ const Shop = () => {
           <Container>
             <Row>
               {!products.length ? (
-                <Box sx={{ width: 600 }}>
+                <Box className="Loder" sx={{ width: 1000 }}>
                   <Skeleton />
                   <Skeleton animation="wave" />
                   <Skeleton animation="wave" />
@@ -108,7 +108,7 @@ const Shop = () => {
                 </Box>
               ) : (
                 <Col>
-                  {productList.length === 0 ? (
+                  {productList.length == 0 ? (
                     <h1 className="text-center fs-4">Product Not Found! ☹</h1>
                   ) : (
                     <ProductList data={productList} />
