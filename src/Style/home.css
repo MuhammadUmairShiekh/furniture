@@ -48,7 +48,7 @@
   font-weight: 700;
   color: var(--primary-color);
   margin-bottom: 4rem !important;
-    /* background-color: red !important; */
+  /* background-color: red !important; */
 }
 
 .timer_count {
@@ -76,6 +76,36 @@
   background-color: #4b7bec;
   color: white;
 }
+.numbers {
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap !important;
+  text-transform: uppercase;
+  border-bottom: 1px #4b7bec !important;
+}
+
+.numbers h1 {
+  background-color: var(--primary-color);
+  color: #fafafa;
+  padding: 3rem;
+  width: auto;
+  height: 10rem !important;
+  margin: 10px;
+  border-radius: 10px !important;
+  text-align: center !important;
+  font-weight: 900 !important;
+}
+/* .one{
+  background-color: #fffa65;
+}
+.one1{
+  background-color: #32ff7e;
+}
+.one2{
+  background-color: #ffaf40;
+} */
 
 @media only screen and (max-width: 991px) {
   .hero_section h2 {
@@ -89,7 +119,6 @@
 
   .section_title {
     font-size: 1.5rem;
-    
   }
 
   .counter_img {
@@ -135,6 +164,9 @@
 
   .store_btn {
     width: 15rem !important;
+  }
+  .numbers h1 {
+    width: 100%;
   }
 }
 

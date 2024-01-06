@@ -22,6 +22,7 @@ const Home = () => {
   const [trending, setTrending] = useState([]);
   const [bestProduct, setBestProduct] = useState([]);
   const [bestTables, setBestTables] = useState([]);
+  const [bestBeds, setBestBeds] = useState([]);
   const navigate = useNavigate();
   const year = new Date().getFullYear();
   useEffect(() => {
@@ -34,8 +35,9 @@ const Home = () => {
     const filterBestTable = products.filter(
       (item) => item.category === "table"
     );
+    const filterBestBeds = products.filter((item) => item.category === "bed");
+    setBestBeds(filterBestBeds);
     setTrending(filterTrendingProduct);
-    // setLoading(true);
     setBestProduct(filterBestProduct);
     setBestTables(filterBestTable);
   }, [products]);
@@ -147,8 +149,17 @@ const Home = () => {
               <Col lg="12" className="text-center">
                 <h2 className="section_title">Best Sales</h2>
               </Col>
-
-              <ProductList data={bestProduct} />
+              {!products.length ? (
+                <Box className="Loder" sx={{ width: 1000 }}>
+                  <Skeleton />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation={false} />
+                </Box>
+              ) : (
+                <ProductList data={bestProduct} />
+              )}{" "}
             </Row>
           </Container>
         </section>
@@ -156,12 +167,19 @@ const Home = () => {
           <Container>
             <Row>
               <Col>
-                <div className="photo-profile">
-                  <div className="numbers">
-                    <Counter number={105} title="Clients" />
-                    <Counter number={5175} title="Followers" />
-                    <Counter number={468} title="Following" />
-                  </div>
+                <div className="numbers">
+                  <h1 className="one">
+                    <Counter number={1028} />
+                    Customer
+                  </h1>
+                  <h1 className="one1">
+                    <Counter number={468} />
+                    Following
+                  </h1>
+                  <h1 className="one2">
+                    <Counter number={468} />
+                    Following
+                  </h1>
                 </div>
               </Col>
             </Row>
@@ -182,7 +200,7 @@ const Home = () => {
                   whileInView={{ opacity: 1 }}
                 >
                   <div className="clock_top">
-                    <h4 className="text-white fs-7 mb-2">
+                    <h4 className="text-white fs-7 mb-2 ">
                       Limited Time Offers
                     </h4>
                     <h3 className=" border-0 text-white fs-5 mb-3">

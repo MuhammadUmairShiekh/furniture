@@ -4,7 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 
 const useGetData = (collectionName) => {
   const [data, setData] = useState([]);
-  const collectionData = collection(db, collectionName);
+  const collectionData = collection(db, "products");
   useEffect(() => {
     const getData = async () => {
       const data = await getDocs(collectionData);

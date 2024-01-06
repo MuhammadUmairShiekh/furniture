@@ -33,6 +33,7 @@ function ProductCard({ item }) {
             <NavLink to={`/Shop/${item.id}`}>
               <motion.img
                 src={item.imgUrl}
+                whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0 }}
                 transition={{
                   duration: 1.1,
@@ -40,8 +41,6 @@ function ProductCard({ item }) {
                   delay: 0.8,
                 }}
                 whileInView={{ opacity: 1 }}
-                whileHover={{ scale: 1.1 }}
-
                 alt=""
               />
             </NavLink>

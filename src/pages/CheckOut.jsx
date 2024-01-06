@@ -21,7 +21,7 @@ const CheckOut = () => {
 
   const orderPlace = () => {
     console.log(totalQty);
-    console.log((totalAmount * 18 / 100) + totalAmount);
+    console.log((totalAmount * 18) / 100 + totalAmount);
   };
   return (
     <>
@@ -84,6 +84,7 @@ const CheckOut = () => {
               {/* <h3>Please Fill The Form CareFully</h3> */}
             </Col>
             <Col lg="4">
+              <h2 className="Delivery">Cash On Delivery</h2>
               <div className="checkOut_Card">
                 <h6>
                   {" "}
@@ -110,8 +111,9 @@ const CheckOut = () => {
                   <span>
                     PKR{" "}
                     {Math.floor(
-                      (totalAmount * 18 / 100) + totalAmount +
-                      (totalAmount > 80000 ? + 1100 : 0)
+                      (totalAmount * 18) / 100 +
+                        totalAmount +
+                        (totalAmount > 80000 ? +1100 : 0)
                     )}
                   </span>
                 </h3>

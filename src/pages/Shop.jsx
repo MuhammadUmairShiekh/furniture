@@ -5,7 +5,7 @@ import Helmet from "../Conponents/Helmet/Helmet";
 import { Container, Row, Col } from "react-bootstrap";
 import "../Style/Shop.css";
 import { useState } from "react";
-import products from '../data/products'
+import products from "../data/products";
 import ProductList from "../MUI/ProductList";
 import useGetData from "../custom/useGetData";
 import Box from "@mui/material/Box";
@@ -14,7 +14,9 @@ import Skeleton from "@mui/material/Skeleton";
 const Shop = () => {
   const { data: products } = useGetData("products");
   const [productList, setProductList] = useState(products);
-// const [loading , setLoading] = useState(false)
+  // const [loading , setLoading] = useState(false)
+
+
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === "sofa") {
@@ -22,26 +24,28 @@ const Shop = () => {
         (item) => item.category === "sofa"
       );
       setProductList(filterProducts);
-      // console.log(filterProducts)
     }
     if (filterValue === "chair") {
       const filterProducts = products.filter(
         (item) => item.category === "chair"
       );
       setProductList(filterProducts);
-      // console.log(filterProducts)
+    }
+    if (filterValue === "Clear_filter") {
+      const clear_filter = products.sort(
+        (item) => item.filter === "Clear_filter"
+      );
+      setProductList(clear_filter);
     }
     if (filterValue === "table") {
       const filterProducts = products.filter(
         (item) => item.category === "table"
       );
       setProductList(filterProducts);
-      // console.log(filterProducts)
     }
     if (filterValue === "bed") {
       const filterProducts = products.filter((item) => item.category === "bed");
       setProductList(filterProducts);
-      // console.log(filterProducts)
     }
   };
 
@@ -63,7 +67,7 @@ const Shop = () => {
               <Col lg="3" md="6">
                 <div className="filter_widget">
                   <select onChange={handleFilter}>
-                    <option>Filter By Category</option>
+                    <option value="Clear_filter">Filter By Category</option>
                     <option value="sofa">Sofa</option>
                     <option value="chair">Chair</option>
                     <option value="table">Tabel</option>
@@ -73,7 +77,7 @@ const Shop = () => {
               </Col>
               <Col lg="3" md="6">
                 <div className="filter_widget">
-                  <select>
+                  <select onChange={handleFilter}>
                     <option>Sort BY</option>
                     <option value="Ascending">Ascending</option>
                     <option value="descending">Descending</option>

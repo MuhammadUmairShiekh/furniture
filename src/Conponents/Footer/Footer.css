@@ -49,3 +49,20 @@
     color: white;
 }
 
+.subScript{
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+.subScript::placeholder{
+   color: var(--primary-color);
+}
+.btnn{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: 900;
+    background-color: #fff;
+    color: var(--primary-color);
+}
+

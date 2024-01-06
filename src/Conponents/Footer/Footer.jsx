@@ -97,6 +97,10 @@ const Footer = () => {
                     <p>Email@Dreamfurniture.com.pk</p>
                   </a>
                 </ListGroupItem>
+                <ListGroupItem className="ps-0 border-0 d-flex align-items-center gap-2">
+                  <input className="subScript" type="text" placeholder="Enter Email Address " />
+                  <button className="btnn" type="submit">Subscript</button>
+                </ListGroupItem>
               </ListGroup>
             </div>
           </Col>

@@ -76,6 +76,7 @@ const Clock = () => {
           <h3 className='border-0 text-white fs-6'>
             Seconds
           </h3>
+          
         </div>
         {/* <span className='text-white fs-3 '>:</span> */}
       </div>
