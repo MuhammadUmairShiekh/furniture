@@ -5,7 +5,7 @@ const Counter = ({ number }) => {
   return (
     <>
       <div className="number">
-        <CountUp duration={10} className="counter" end={number} />
+        <CountUp duration={3} className="counter" end={number} />
       </div>
     </>
   );

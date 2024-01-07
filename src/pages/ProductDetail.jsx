@@ -234,7 +234,7 @@ const ProductDetail = () => {
                 )}
               </Col>
               <Col lg="12">
-                <h2 className="related_tittle mt-5">You might also like</h2>
+                <h2 className="related_tittle mt-5 mb-5">You might also like</h2>
                 <ProductList data={relatedProduct} />
               </Col>
             </Row>

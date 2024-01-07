@@ -17,6 +17,7 @@ const Shop = () => {
   // const [loading , setLoading] = useState(false)
 
 
+
   const handleFilter = (e) => {
     const filterValue = e.target.value;
     if (filterValue === "sofa") {
